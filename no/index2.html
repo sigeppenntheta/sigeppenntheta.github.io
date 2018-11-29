@@ -1,0 +1,59 @@
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script type = "text/javascript" src = "assets/email.php"></script></head> </html>
+</head>
+
+<body>
+<form id="contactForm" action="assets/email.php" Method="POST">
+    <label for="name">Your Name</label>
+    <input name="name" type="text" required placeholder="Please enter your name">
+
+    <label for="email">Email Address</label>
+    <input name="email" type="email" required placeholder="Please enter your email address here">
+
+    <label for="message">Message</label>
+    <textarea name="message" required></textarea>  
+
+    <button type="submit">Send</button>
+</form>
+
+<div id="contactResponse"></div>
+
+<script>
+     $("#contactForm").submit(function(event) 
+     {
+         /* stop form from submitting normally */
+         event.preventDefault();
+
+         /* get some values from elements on the page: */
+         var $form = $( this ),
+             $submit = $form.find( 'button[type="submit"]' ),
+             name_value = $form.find( 'input[name="name"]' ).val(),
+             email_value = $form.find( 'input[name="email"]' ).val(),
+             message_value = $form.find( 'textarea[name="message"]' ).val(),
+             url = $form.attr('action');
+
+         /* Send the data using post */
+         var posting = $.post( url, { 
+                           name: name_value, 
+                           email: email_value, 
+                           message: message_value 
+                       });
+
+         posting.done(function( data )
+         {
+             /* Put the results in a div */
+             $( "#contactResponse" ).html(data);
+
+             /* Change the button text. */
+             $submit.text('Sent, Thank you');
+
+             /* Disable the button. */
+             $submit.attr("disabled", true);
+         });
+    });
+</script>
+
+</body>
+</html>
