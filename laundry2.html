@@ -8,8 +8,14 @@
         <div id="include"></div>
 
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-        <script type="text/javascript">
-                $("#include").load("www.tabb.me #title"); 
-        </script> 
+         <script>
+function autoRefresh_div()
+{
+      $("#include").load("www.tabb.me #title");// a function which will load data from other file after x seconds
+ }
+
+  setInterval('autoRefresh_div()', 5000); // refresh div after 5 secs
+            </script>
     </body>
 </html>
+
