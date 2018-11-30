@@ -19,7 +19,21 @@
     </head>
 
 <style>
-.internal {
+.visibledevice {display:none;}
+.visibledesktop {display:display;}
+
+@media (max-width : 320px) {
+    .visibledevice {display:block;}
+    .visibledesktop {display:none;}
+}
+
+.visibledevice {
+    width: 100%;
+    height: 100%;
+    max-width: 699px;
+}
+
+.visibledesktop {
     width: 100%;
     height: 100%;
 }
@@ -35,10 +49,15 @@
 
 <body>
 <div class="container">
-      
-<object class="internal" data="https://www.laundryview.com/home/7289/4997158">
+
+
+<object class="visibledevice" data="https://www.laundryview.com/home/7289/4997158">
 </object>
-</div>
+
+
+<object class="visibledesktop" data="https://www.laundryview.com/home/7289/4997158">
+</object>
+
  
 </body>
 </html>
