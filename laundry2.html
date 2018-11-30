@@ -2,20 +2,20 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Include</title>
+        <title>Include2</title>
     </head>
-    <body>
-        <div id="include"></div>
 
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
          <script>
 function autoRefresh_div()
 {
-      $("#include").load("www.tabb.me #title");// a function which will load data from other file after x seconds
+      $("#include").load("www.tabb.me");// a function which will load data from other file after x seconds
  }
 
   setInterval('autoRefresh_div()', 5000); // refresh div after 5 secs
             </script>
+    <body>
+        <div id="include"></div>  
     </body>
 </html>
 
