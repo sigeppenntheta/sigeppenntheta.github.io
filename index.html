@@ -1,3 +1,10 @@
+<?php
+  $bg = array('spe-01.gif', 'spe-02.gif', 'spe-03.gif', 'spe-01.gif' ); // array of filenames
+
+  $i = rand(0, count($bg)-1); // generate random number size of the array
+  $selectedBg = "$bg[$i]"; // set variable equal to which random filename was chosen
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,6 +48,14 @@
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.png">
+
+<style type="text/css">
+<!--
+body{
+background: url(images/<?php echo $selectedBg; ?>) no-repeat;
+}
+-->
+</style>
 
 </head>
 <body>
