@@ -1,0 +1,96 @@
+<?php
+  $bg = array('spe-01.gif', 'spe-02.gif', 'spe-03.gif', 'spe-01.gif' ); // array of filenames
+
+  $i = rand(0, count($bg)-1); // generate random number size of the array
+  $selectedBg = "$bg[$i]"; // set variable equal to which random filename was chosen
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="apple-touch-icon" href="custom_icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="apple-mobile-web-app-title" content="SigApp">
+ <meta name="apple-mobile-web-app-capable" content="yes">
+ <meta name="apple-mobile-web-app-capable" content="yes">
+ <meta name="apple-mobile-web-app-status-bar-style" content="purple">
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74339615-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-74339615-3');
+</script>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>SigApp</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+<style type="text/css">
+<!--
+body{
+background: url(images/<?php echo $selectedBg; ?>) no-repeat;
+}
+-->
+</style>
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <div class="row">
+      <div class="one-full column" style="margin-top: 5%">
+       <!--  <h4>SigEp.fun</h4> -->
+
+        <a href="http://menu.sigep.fun">
+        <button class="button-primary"><h5>Menu</h5></button>
+        </a>
+        <br>
+
+       <a href="https://www.laundryview.com/home/7289/4997158">
+        <button class="button-primary"><h5>Laundry</h5></button>
+        </a>
+        <br>
+
+        <a href="http://game.sigep.fun">
+        <button class="button-primary"><h5>Game</h5></button>
+        </a>
+        <br>
+
+        <button class="button-primary"><h5>Half App (Coming Soon)</h5></button><br>
+
+ <!--        <button class="button-primary-short"><h5>Booth</h5></button>
+        <button class="button-primary-short"><h5>Buggy</h5></button> -->
+      </div>
+    </div>
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
