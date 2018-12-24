@@ -1,96 +1,111 @@
-<?php
-  $bg = array('spe-01.gif', 'spe-02.gif', 'spe-03.gif', 'spe-01.gif' ); // array of filenames
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>SigEp CMU</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<!-- Google Analytics to taylor -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74339615-3"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
 
-  $i = rand(0, count($bg)-1); // generate random number size of the array
-  $selectedBg = "$bg[$i]"; // set variable equal to which random filename was chosen
-?>
+		  gtag('config', 'UA-74339615-3');
+		</script>
+	</head>
+	<link rel="icon" type="image/png" href="images/favicon.png">
+	<body class="is-preload">
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <link rel="apple-touch-icon" href="custom_icon.png">
-<meta name="viewport" content="width=device-width, initial-scale=1">
- <meta name="apple-mobile-web-app-title" content="SigApp">
- <meta name="apple-mobile-web-app-capable" content="yes">
- <meta name="apple-mobile-web-app-capable" content="yes">
- <meta name="apple-mobile-web-app-status-bar-style" content="purple">
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<a href="index.html" class="logo"><strong>SigEp </strong> <span>Carnegie Mellon University</span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="rush.html" class="button primary fit">Rush</a></li>
+							<li><a href="index.html" class="button fit">Home</a></li>
+							<li><a href="careers.html">Careers</a></li>
+							<li><a href="brothers.html">Values</a></li>
+							<li><a href="campus.html">Campus</a></li>
+							<li><a href="portal.html">Portal</a></li>
+						</ul>
+					</nav>
+				<!-- Main -->
+					<div id="main">
+
+						<!-- One -->
+							<section id="one" class="tiles">
+								<article>
+									<span class="image">
+										<img src="images/menu.jpg" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="http://menu.sigep.fun" class="link">Menu</a></h3>
+										<p>updated weekly</p>
+									</header>
+								</article>
+								<article>
+									<span class="image">
+										<img src="images/laundry.jpg" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="https://www.laundryview.com/home/7289/4997158" class="link">Laundry</a></h3>
+										<p>Third floor machine status</p>
+									</header>
+								</article>
+								<article>
+									<span class="image">
+										<img src="images/game.jpg" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="http://game.sigep.fun" class="link">Game</a></h3>
+										<p>2048</p>
+									</header>
+								</article>
+								<article>
+									<span class="image">
+										<img src="images/shop.jpg" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="https://shop.sigep.fun/" class="link">Shop</a></h3>
+										<p>Penn Theta Gear</p>
+									</header>
+								</article>
+							</section>
+
+					</div>
 
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74339615-3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="copyright">
+								<li>&copy; SigEp Pennsylvania Theta</li>
+							</ul>
+						</div>
+					</footer>
 
-  gtag('config', 'UA-74339615-3');
-</script>
+			</div>
 
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta charset="utf-8">
-  <title>SigApp</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/skeleton.css">
-
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="images/favicon.png">
-
-<style type="text/css">
-<!--
-body{
-background: url(images/<?php echo $selectedBg; ?>) no-repeat;
-}
--->
-</style>
-
-</head>
-<body>
-
-  <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div class="container">
-    <div class="row">
-      <div class="one-full column" style="margin-top: 5%">
-       <!--  <h4>SigEp.fun</h4> -->
-
-        <a href="http://menu.sigep.fun">
-        <button class="button-primary"><h5>Menu</h5></button>
-        </a>
-        <br>
-
-       <a href="https://www.laundryview.com/home/7289/4997158">
-        <button class="button-primary"><h5>Laundry</h5></button>
-        </a>
-        <br>
-
-        <a href="http://game.sigep.fun">
-        <button class="button-primary"><h5>Game</h5></button>
-        </a>
-        <br>
-
-        <button class="button-primary"><h5>Half App (Coming Soon)</h5></button><br>
-
- <!--        <button class="button-primary-short"><h5>Booth</h5></button>
-        <button class="button-primary-short"><h5>Buggy</h5></button> -->
-      </div>
-    </div>
-  </div>
-
-<!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-</body>
+	</body>
 </html>
