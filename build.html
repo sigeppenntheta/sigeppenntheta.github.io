@@ -30,7 +30,7 @@
     <link rel="icon" type="build-app/image/png" href="build-app/images/favicon.png">
     <link rel="apple-touch-icon" href="build-app/images/custom_icon.png">
 
-<!-- Google Analytics to taylor -->
+    <!-- Google Analytics to taylor -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74339615-3"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -39,13 +39,18 @@
 
       gtag('config', 'UA-74339615-3');
     </script>
+
     
   </head>
   <style>
 
-.full {
-  width: 100%;
-}
+  .full {
+    width: 100%;
+  }
+
+  .done {
+    /*  text-decoration: line-through;*/
+  }
 
   .collapsible {
     cursor: pointer;
@@ -67,21 +72,26 @@
 </style>
 <body>
 
+
   <!-- Primary Page Layout | This is for you to edit! Replace Moana's info with yours :)
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
     <div class="container" style="margin-top: 10%">
-<div class="row">
-<div class="twelve columns">
-  <div class="four columns offset-by-four">
-  <img src="build-app/images/cocologo.png" width="100%">
-</div>
-</div>
-  </div>
-  <br>  
-<!--   <h6> ✂✓</h6> -->
-<div class="row">
-  <div class="collapsible"> <button class="button-primary full">Blueprints</button></div>
-      <div class="content">   
+      <div class="row">
+        <div class="twelve columns">
+          <div class="four columns offset-by-four">
+            <img src="build-app/images/cocologo.png" width="100%">
+          </div>
+        </div>
+      </div>
+      <br>  
+      <!--   <h6> ✂✓</h6> -->
+      <div class="row">
+        <h6 align="center">Wall/Platform Status: <span id="build_status"></span>% Complete</h6>
+<!--         <h6 align="center">Figure Build Status: <span id="figure_status"></span>% Complete</h6>
+        <h6 align="center">Structure Build Status: <span id="all_status"></span>% Complete</h6> -->
+        <div class="collapsible"> <button class="button-primary full">Blueprints</button></div>
+        <div class="content">   
           <div class="three columns">
             <h5>Floor 1 Walls:</h5>
             <select onChange="window.location.href=this.value">
@@ -110,16 +120,16 @@
               <option>-</option>
               <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2A.pdf">2A</option>
               <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2B.pdf">2B ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2C.pdf">2C ✓</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2C.pdf" class="done">2C ✓</option>
               <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2D.pdf">2D</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2E.pdf">2E ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2F.pdf">2F ✓</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2E.pdf" class="done">2E ✓</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2F.pdf" class="done">2F ✓</option>
               <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2G.pdf">2G</option>
               <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2H.pdf">2H</option>
               <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2I.pdf">2I</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2J.pdf">2J ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2K.pdf">2K ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2L.pdf">2L ✓</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2J.pdf" class="done">2J ✓</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2K.pdf" class="done">2K ✓</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2L.pdf" class="done">2L ✓</option>
               <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2M.pdf">2M</option>
               <option value="http://sigep.fun/build-app/blueprints/walls/floor2/DO3.pdf">DO3</option>
               <option value="http://sigep.fun/build-app/blueprints/walls/floor2/DO4.pdf">DO4</option>
@@ -131,7 +141,7 @@
             <h5>Platforms:</h5>
             <select onChange="window.location.href=this.value">
               <option>-</option>
-              <option value="http://sigep.fun/build-app/blueprints/platforms/floor1/P1A.pdf">Floor 1: P1 A ✓</option>
+              <option value="http://sigep.fun/build-app/blueprints/platforms/floor1/P1A.pdf" class="done">Floor 1: P1 A ✓</option>
               <option value="http://sigep.fun/build-app/blueprints/platforms/floor1/P1B.pdf">Floor 1: P1 B</option>
               <option value="http://sigep.fun/build-app/blueprints/platforms/floor1/P1C.pdf">Floor 1: P1 C</option>
               <option value="http://sigep.fun/build-app/blueprints/platforms/floor1/P1D.pdf">Floor 1: P1 D</option>
@@ -152,11 +162,11 @@
           </div>
         </div>
 
-</div>
-<div class="row">
- <div class="collapsible"> <button class="button full">Paint Reference</button></div>
+      </div>
+      <div class="row">
+       <div class="collapsible"> <button class="button full">Paint Reference</button></div>
 
-      <div class="content">     
+       <div class="content">     
           <!-- <div class="three columns">
             <h5>Floor 1 Walls</h5>
             <select onChange="window.location.href=this.value">
@@ -236,13 +246,13 @@
             </select>
           </div> -->
         </div>
-            
-</div>
 
-<div class="row">
- <div class="collapsible"> <button class="button full">Figures</button></div>
+      </div>
 
-      <div class="content">     
+      <div class="row">
+       <div class="collapsible"> <button class="button full">Figures</button></div>
+
+       <div class="content">     
           <!-- <div class="three columns">
             <h5>Floor 1 Walls</h5>
             <select onChange="window.location.href=this.value">
@@ -322,11 +332,11 @@
             </select>
           </div> -->
         </div>
-</div>
-<div class="row">
- <div class="collapsible"> <button class="button full">Layout</button></div>
+      </div>
+      <div class="row">
+       <div class="collapsible"> <button class="button full">Layout</button></div>
 
-      <div class="content">     
+       <div class="content">     
           <!-- <div class="three columns">
             <h5>Floor 1 Walls</h5>
             <select onChange="window.location.href=this.value">
@@ -407,24 +417,31 @@
           </div> -->
         </div>
 
-</div>
-</div>
-      <script>
-        var coll = document.getElementsByClassName("collapsible");
-        var i;
+      </div>
+    </div>
+    <script>
+      var coll = document.getElementsByClassName("collapsible");
+      var i;
 
-        for (i = 0; i < coll.length; i++) {
-          coll[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.maxHeight){
-              content.style.maxHeight = null;
-            } else {
-              content.style.maxHeight = content.scrollHeight + "px";
-            } 
-          });
-        }
-      </script>
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.maxHeight){
+            content.style.maxHeight = null;
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+          } 
+        });
+      }
+    </script>
+    <script type="text/javascript">
+      var finished=document.getElementsByClassName('done').length;
+      var total=31;
+      var percent=100*(finished/total);
+      var build_status = Math.round(percent);
+      document.getElementById("build_status").innerHTML = build_status;
+    </script>
 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
