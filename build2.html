@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Style is Skeleton CSS. Build tracker by Taylor Tabb '18 '19 [http://tabb.me]. -->
+
+
+  <!-- Basic Page Needs | You can replace your description and name with your description and name. The description may show up in search results.
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+
+  <!-- Mobile Specific Metas | Ensures the site looks good on mobile
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- FONT | To pick a new font, head to https://fonts.google.com/
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS | These are the stylesheets that make this site look as it does
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="build-app/css/normalize.css">
+    <link rel="stylesheet" href="build-app/css/skeleton.css">
+
+
+  <!-- Favicon | This is the little icon that shows up above the URL bar and in bookmarks
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="build-app/image/png" href="build-app/images/favicon.png">
+    <link rel="apple-touch-icon" href="build-app/images/custom_icon.png">
+
+  </head>
+  <style>
+
+.full {
+  width: 100%;
+}
+
+  .collapsible {
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+  }
+
+  .active, .collapsible:hover {
+    /*  background-color: #555;*/
+  }
+
+  .content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+</style>
+<body>
+
+  <!-- Primary Page Layout | This is for you to edit! Replace Moana's info with yours :)
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <div class="container" style="margin-top: 10%">
+<div class="row">
+<div class="twelve columns">
+  <div class="four columns offset-by-four">
+  <img src="build-app/images/cocologo.png" width="100%">
+</div>
+</div>
+  </div>
+  <br>  
+<!--   <h6> ✂✓</h6> -->
+<div class="row">
+  <div class="collapsible"> <button class="button-primary full">Blueprints</button></div>
+      <div class="content">   
+          <div class="three columns">
+            <h5>Floor 1 Walls:</h5>
+            <select onChange="window.location.href=this.value">
+              <option>-</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1A.pdf">1A</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1B.pdf">1B</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1C.pdf">1C</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1D.pdf">1D</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1E.pdf">1E</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1F.pdf">1F</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1G.pdf">1G</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1H.pdf">1H</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1I.pdf">1I</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1J.pdf"">1J</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1K.pdf">1K</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1L.pdf">1L</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1M.pdf">1M</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/D01.pdf">DO1</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/DO2.pdf">DO2</option>
+            </select>
+          </div>
+
+          <div class="three columns">
+            <h5>Floor 2 Walls:</h5>
+            <select onChange="window.location.href=this.value">
+              <option>-</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2A.pdf">2A</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2B.pdf">2B ✓</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2C.pdf">2C ✓</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2D.pdf">2D</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2E.pdf">2E ✓</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2F.pdf">2F ✓</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2G.pdf">2G</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2H.pdf">2H</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2I.pdf">2I</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2J.pdf">2J ✓</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2K.pdf">2K ✓</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2L.pdf">2L ✓</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2M.pdf">2M</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/D03.pdf">DO3</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/D04.pdf">DO4</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/D05.pdf">DO5</option>
+            </select>
+          </div>
+
+          <div class="three columns">
+            <h5>Platforms:</h5>
+            <select onChange="window.location.href=this.value">
+              <option>-</option>
+              <option value="http://sigep.fun/build-app/blueprints/platforms/floor1/P1A.pdf">Floor 1: P1 A ✓</option>
+              <option value="http://sigep.fun/build-app/blueprints/platforms/floor1/P1B.pdf">Floor 1: P1 B</option>
+              <option value="http://sigep.fun/build-app/blueprints/platforms/floor1/P1C.pdf">Floor 1: P1 C</option>
+              <option value="http://sigep.fun/build-app/blueprints/platforms/floor1/P1D.pdf">Floor 1: P1 D</option>
+              <option value="http://sigep.fun/build-app/blueprints/platforms/floor2/P2A.pdf">Floor 2: P2 A</option>
+              <option value="http://sigep.fun/build-app/blueprints/platforms/floor2/P2B.pdf">Floor 2: P2 B</option>
+              <option value="http://sigep.fun/build-app/blueprints/platforms/floor2/P2C.pdf">Floor 2: P2 C</option>
+            </select>
+          </div>
+
+          <div class="three columns">
+            <h5>Roof:</h5>
+            <select onChange="window.location.href=this.value">
+              <option>-</option>
+              <option value="http://sigep.fun/build-app/blueprints/roof/3A.pdf">3A</option>
+              <option value="http://sigep.fun/build-app/blueprints/roof/3B.pdf">3B</option>
+              <option value="http://sigep.fun/build-app/blueprints/roof/3C.pdf">3C</option>
+            </select>
+          </div>
+        </div>
+
+</div>
+<div class="row">
+ <div class="collapsible"> <button class="button full">Paint Reference</button></div>
+
+      <div class="content">     
+          <!-- <div class="three columns">
+            <h5>Floor 1 Walls</h5>
+            <select onChange="window.location.href=this.value">
+              <option value="www.google.com">1A</option>
+              <option value="www.aol.com">1B</option>
+              <option value="www.aol.com">1B</option>
+              <option value="www.aol.com">1C</option>
+              <option value="www.aol.com">1D</option>
+              <option value="www.aol.com">1E</option>
+              <option value="www.aol.com">1F</option>
+              <option value="www.aol.com">1G</option>
+              <option value="www.aol.com">1H</option>
+              <option value="www.aol.com">1I</option>
+              <option value="www.aol.com">1J</option>
+              <option value="www.aol.com">1K</option>
+              <option value="www.aol.com">1L</option>
+              <option value="www.aol.com">1M</option>
+              <option value="www.aol.com">DO1</option>
+              <option value="www.aol.com">DO2</option>
+            </select>
+          </div>
+
+          <div class="three columns">
+            <h5>Floor 2 Walls</h5>
+            <select onChange="window.location.href=this.value">
+              <option value="www.google.com">2A</option>
+              <option value="www.aol.com">2B</option>
+              <option value="www.aol.com">1C</option>
+              <option value="www.aol.com">2D</option>
+              <option value="www.aol.com">2E</option>
+              <option value="www.aol.com">2F</option>
+              <option value="www.aol.com">2G</option>
+              <option value="www.aol.com">2H</option>
+              <option value="www.aol.com">2I</option>
+              <option value="www.aol.com">2J</option>
+              <option value="www.aol.com">2K</option>
+              <option value="www.aol.com">2L</option>
+              <option value="www.aol.com">2M</option>
+              <option value="www.aol.com">DO3</option>
+              <option value="www.aol.com">DO4</option>
+              <option value="www.aol.com">DO4</option>
+            </select>
+          </div>
+
+          <div class="three columns">
+            <h5>Platforms</h5>
+            <select onChange="window.location.href=this.value">
+              <option value="www.aol.com">Floor 1: P1 A</option>
+              <option value="www.aol.com">Floor 1: P1 B</option>
+              <option value="www.aol.com">Floor 1: P1 C</option>
+              <option value="www.aol.com">Floor 1: P1 D</option>
+              <option value="www.aol.com">Floor 2: P2 A</option>
+              <option value="www.aol.com">Floor 2: P2 B</option>
+              <option value="www.aol.com">Floor 2: P2 C</option>
+            </select>
+          </div>
+
+          <div class="three columns">
+            <h5>Layout</h5>
+            <select onChange="window.location.href=this.value">
+              <option value="www.google.com">1A</option>
+              <option value="www.aol.com">1B</option>
+              <option value="www.aol.com">1B</option>
+              <option value="www.aol.com">1C</option>
+              <option value="www.aol.com">1D</option>
+              <option value="www.aol.com">1E</option>
+              <option value="www.aol.com">1F</option>
+              <option value="www.aol.com">1G</option>
+              <option value="www.aol.com">1H</option>
+              <option value="www.aol.com">1I</option>
+              <option value="www.aol.com">1J</option>
+              <option value="www.aol.com">1K</option>
+              <option value="www.aol.com">1L</option>
+              <option value="www.aol.com">1M</option>
+              <option value="www.aol.com">DO1</option>
+              <option value="www.aol.com">DO2</option>
+            </select>
+          </div> -->
+        </div>
+            
+</div>
+
+<div class="row">
+ <div class="collapsible"> <button class="button full">Figures</button></div>
+
+      <div class="content">     
+          <!-- <div class="three columns">
+            <h5>Floor 1 Walls</h5>
+            <select onChange="window.location.href=this.value">
+              <option value="www.google.com">1A</option>
+              <option value="www.aol.com">1B</option>
+              <option value="www.aol.com">1B</option>
+              <option value="www.aol.com">1C</option>
+              <option value="www.aol.com">1D</option>
+              <option value="www.aol.com">1E</option>
+              <option value="www.aol.com">1F</option>
+              <option value="www.aol.com">1G</option>
+              <option value="www.aol.com">1H</option>
+              <option value="www.aol.com">1I</option>
+              <option value="www.aol.com">1J</option>
+              <option value="www.aol.com">1K</option>
+              <option value="www.aol.com">1L</option>
+              <option value="www.aol.com">1M</option>
+              <option value="www.aol.com">DO1</option>
+              <option value="www.aol.com">DO2</option>
+            </select>
+          </div>
+
+          <div class="three columns">
+            <h5>Floor 2 Walls</h5>
+            <select onChange="window.location.href=this.value">
+              <option value="www.google.com">2A</option>
+              <option value="www.aol.com">2B</option>
+              <option value="www.aol.com">1C</option>
+              <option value="www.aol.com">2D</option>
+              <option value="www.aol.com">2E</option>
+              <option value="www.aol.com">2F</option>
+              <option value="www.aol.com">2G</option>
+              <option value="www.aol.com">2H</option>
+              <option value="www.aol.com">2I</option>
+              <option value="www.aol.com">2J</option>
+              <option value="www.aol.com">2K</option>
+              <option value="www.aol.com">2L</option>
+              <option value="www.aol.com">2M</option>
+              <option value="www.aol.com">DO3</option>
+              <option value="www.aol.com">DO4</option>
+              <option value="www.aol.com">DO4</option>
+            </select>
+          </div>
+
+          <div class="three columns">
+            <h5>Platforms</h5>
+            <select onChange="window.location.href=this.value">
+              <option value="www.aol.com">Floor 1: P1 A</option>
+              <option value="www.aol.com">Floor 1: P1 B</option>
+              <option value="www.aol.com">Floor 1: P1 C</option>
+              <option value="www.aol.com">Floor 1: P1 D</option>
+              <option value="www.aol.com">Floor 2: P2 A</option>
+              <option value="www.aol.com">Floor 2: P2 B</option>
+              <option value="www.aol.com">Floor 2: P2 C</option>
+            </select>
+          </div>
+
+          <div class="three columns">
+            <h5>Sheathing</h5>
+            <select onChange="window.location.href=this.value">
+              <option value="www.google.com">1A</option>
+              <option value="www.aol.com">1B</option>
+              <option value="www.aol.com">1B</option>
+              <option value="www.aol.com">1C</option>
+              <option value="www.aol.com">1D</option>
+              <option value="www.aol.com">1E</option>
+              <option value="www.aol.com">1F</option>
+              <option value="www.aol.com">1G</option>
+              <option value="www.aol.com">1H</option>
+              <option value="www.aol.com">1I</option>
+              <option value="www.aol.com">1J</option>
+              <option value="www.aol.com">1K</option>
+              <option value="www.aol.com">1L</option>
+              <option value="www.aol.com">1M</option>
+              <option value="www.aol.com">DO1</option>
+              <option value="www.aol.com">DO2</option>
+            </select>
+          </div> -->
+        </div>
+</div>
+<div class="row">
+ <div class="collapsible"> <button class="button full">Layout</button></div>
+
+      <div class="content">     
+          <!-- <div class="three columns">
+            <h5>Floor 1 Walls</h5>
+            <select onChange="window.location.href=this.value">
+              <option value="www.google.com">1A</option>
+              <option value="www.aol.com">1B</option>
+              <option value="www.aol.com">1B</option>
+              <option value="www.aol.com">1C</option>
+              <option value="www.aol.com">1D</option>
+              <option value="www.aol.com">1E</option>
+              <option value="www.aol.com">1F</option>
+              <option value="www.aol.com">1G</option>
+              <option value="www.aol.com">1H</option>
+              <option value="www.aol.com">1I</option>
+              <option value="www.aol.com">1J</option>
+              <option value="www.aol.com">1K</option>
+              <option value="www.aol.com">1L</option>
+              <option value="www.aol.com">1M</option>
+              <option value="www.aol.com">DO1</option>
+              <option value="www.aol.com">DO2</option>
+            </select>
+          </div>
+
+          <div class="three columns">
+            <h5>Floor 2 Walls</h5>
+            <select onChange="window.location.href=this.value">
+              <option value="www.google.com">2A</option>
+              <option value="www.aol.com">2B</option>
+              <option value="www.aol.com">1C</option>
+              <option value="www.aol.com">2D</option>
+              <option value="www.aol.com">2E</option>
+              <option value="www.aol.com">2F</option>
+              <option value="www.aol.com">2G</option>
+              <option value="www.aol.com">2H</option>
+              <option value="www.aol.com">2I</option>
+              <option value="www.aol.com">2J</option>
+              <option value="www.aol.com">2K</option>
+              <option value="www.aol.com">2L</option>
+              <option value="www.aol.com">2M</option>
+              <option value="www.aol.com">DO3</option>
+              <option value="www.aol.com">DO4</option>
+              <option value="www.aol.com">DO4</option>
+            </select>
+          </div>
+
+          <div class="three columns">
+            <h5>Platforms</h5>
+            <select onChange="window.location.href=this.value">
+              <option value="www.aol.com">Floor 1: P1 A</option>
+              <option value="www.aol.com">Floor 1: P1 B</option>
+              <option value="www.aol.com">Floor 1: P1 C</option>
+              <option value="www.aol.com">Floor 1: P1 D</option>
+              <option value="www.aol.com">Floor 2: P2 A</option>
+              <option value="www.aol.com">Floor 2: P2 B</option>
+              <option value="www.aol.com">Floor 2: P2 C</option>
+            </select>
+          </div>
+
+          <div class="three columns">
+            <h5>Sheathing</h5>
+            <select onChange="window.location.href=this.value">
+              <option value="www.google.com">1A</option>
+              <option value="www.aol.com">1B</option>
+              <option value="www.aol.com">1B</option>
+              <option value="www.aol.com">1C</option>
+              <option value="www.aol.com">1D</option>
+              <option value="www.aol.com">1E</option>
+              <option value="www.aol.com">1F</option>
+              <option value="www.aol.com">1G</option>
+              <option value="www.aol.com">1H</option>
+              <option value="www.aol.com">1I</option>
+              <option value="www.aol.com">1J</option>
+              <option value="www.aol.com">1K</option>
+              <option value="www.aol.com">1L</option>
+              <option value="www.aol.com">1M</option>
+              <option value="www.aol.com">DO1</option>
+              <option value="www.aol.com">DO2</option>
+            </select>
+          </div> -->
+        </div>
+
+</div>
+</div>
+      <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+          coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight){
+              content.style.maxHeight = null;
+            } else {
+              content.style.maxHeight = content.scrollHeight + "px";
+            } 
+          });
+        }
+      </script>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
