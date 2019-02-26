@@ -40,6 +40,35 @@
       gtag('config', 'UA-74339615-3');
     </script>
 
+<script>
+
+    var countDownDate = new Date("Apr 5, 2019 15:00:00").getTime();
+
+    var x = setInterval(function() {
+
+      var now = new Date().getTime();
+        
+      var distance = countDownDate - now;
+        
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+      // Output the result in an element with id="move_on_timer"
+      document.getElementById("move_on_timer").innerHTML = "Move On In: " + days + " days " + hours + " hrs " + minutes + " min " + seconds + " sec ";
+     
+      // When we have a move on time
+      //   document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+      // + minutes + "m " + seconds + "s ";
+        
+      // If the count down is over, write some text 
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("move_on_timer").innerHTML = "MOVE ON IS NOW!";
+      }
+    }, 1000);
+    </script>
     
   </head>
   <style>
@@ -87,7 +116,7 @@
       <br>  
       <!--   <h6> ✂✓</h6> -->
       <div class="row">
-        <h6 align="center">Wall/Platform/Roof Status: <span id="build_status"></span>% Complete</h6>
+        <h6 align="center">Wall/Platform/Roof Status: <span id="build_status"></span>% Complete </h6>
 <!--         <h6 align="center">Figure Build Status: <span id="figure_status"></span>% Complete</h6>
         <h6 align="center">Structure Build Status: <span id="all_status"></span>% Complete</h6> -->
         <div class="collapsible"> <button class="button-primary full">Blueprints</button></div>
@@ -416,6 +445,7 @@
             </select>
           </div> -->
         </div>
+       <h6 align="center"> <span id="move_on_timer"></span></h6>
 
       </div>
     </div>
