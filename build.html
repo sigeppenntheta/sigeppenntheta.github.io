@@ -119,7 +119,7 @@
             <select onChange="window.location.href=this.value">
               <option>-</option>
               <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2A.pdf">2A</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2B.pdf">2B ✓</option>
+              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2B.pdf" class="done">2B ✓</option>
               <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2C.pdf" class="done">2C ✓</option>
               <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2D.pdf">2D</option>
               <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2E.pdf" class="done">2E ✓</option>
@@ -437,7 +437,7 @@
     </script>
     <script type="text/javascript">
       var finished=document.getElementsByClassName('done').length;
-      var total=31;
+      var total=41;
       var percent=100*(finished/total);
       var build_status = Math.round(percent);
       document.getElementById("build_status").innerHTML = build_status;
