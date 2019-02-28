@@ -30,12 +30,12 @@
         .staticrypt-form {
             position: relative;
             z-index: 1;
-            background: #FFFFFF;
+/*            background: #FFFFFF;*/
             max-width: 360px;
             margin: 0 auto 100px;
             padding: 45px;
             text-align: center;
-            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+/*            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);*/
         }
 
         .staticrypt-form input {
@@ -52,7 +52,7 @@
         .staticrypt-form .staticrypt-decrypt-button {
             text-transform: uppercase;
             outline: 0;
-            background: purple;
+            background: #FF4136;
             width: 100%;
             border: 0;
             padding: 15px;
@@ -113,8 +113,6 @@
 <div class="staticrypt-page">
     <div class="staticrypt-form">
         <div class="staticrypt-instructions">
-            <p class="staticrypt-title"> Protected Page</p>
-            <p></p>
         </div>
 
         <hr class="staticrypt-hr">
@@ -123,7 +121,7 @@
             <input id="staticrypt-password"
                    type="password"
                    name="password"
-                   placeholder="passphrase"
+                   placeholder="Enter Password"
                    autofocus/>
 
             <input type="submit" class="staticrypt-decrypt-button" value="unlock"/>
