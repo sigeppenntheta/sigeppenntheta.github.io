@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Protected Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<link href="//fonts.googleapis.com/css?family=Roboto:400,300,600" rel="stylesheet" type="text/css">
     <!-- do not cache this page -->
     <meta http-equiv="cache-control" content="max-age=0"/>
     <meta http-equiv="cache-control" content="no-cache"/>
@@ -52,7 +52,7 @@
         .staticrypt-form .staticrypt-decrypt-button {
             text-transform: uppercase;
             outline: 0;
-            background: #4CAF50;
+            background: purple;
             width: 100%;
             border: 0;
             padding: 15px;
@@ -71,12 +71,8 @@
 
         .staticrypt-body {
             margin-bottom: 1em;
-            background: #76b852; /* fallback for old browsers */
-            background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-            background: -moz-linear-gradient(right, #76b852, #8DC26F);
-            background: -o-linear-gradient(right, #76b852, #8DC26F);
-            background: linear-gradient(to left, #76b852, #8DC26F);
-            font-family: "Arial", sans-serif;
+            background: purple; /* fallback for old browsers */
+            font-family: "Roboto", sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
@@ -117,7 +113,7 @@
 <div class="staticrypt-page">
     <div class="staticrypt-form">
         <div class="staticrypt-instructions">
-            <p class="staticrypt-title">Protected Page</p>
+            <p class="staticrypt-title"> Protected Page</p>
             <p></p>
         </div>
 
@@ -130,15 +126,11 @@
                    placeholder="passphrase"
                    autofocus/>
 
-            <input type="submit" class="staticrypt-decrypt-button" value="DECRYPT"/>
+            <input type="submit" class="staticrypt-decrypt-button" value="unlock"/>
         </form>
     </div>
 
 </div>
-<footer class="staticrypt-footer">
-    <p class="pull-right">Created with <a href="https://robinmoisson.github.io/staticrypt">StatiCrypt</a></p>
-</footer>
-
 
 <script>/**
  * Crypto JS 3.1.9-1
