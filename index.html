@@ -15,36 +15,6 @@
 
 		  gtag('config', 'UA-74339615-3');
 		</script>
-
-		<script>
-
-		var countDownDate = new Date("Apr 5, 2019 15:00:00").getTime();
-
-		var x = setInterval(function() {
-
-		  var now = new Date().getTime();
-		    
-		  var distance = countDownDate - now;
-		    
-		  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-		  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-		  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-		  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-		    
-		  // Output the result in an element with id="move_on_timer"
-		  document.getElementById("move_on_timer").innerHTML = "Days Until Move On: " + days;
-		 
-		  // When we have a move on time
-		  //   document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-		  // + minutes + "m " + seconds + "s ";
-		    
-		  // If the count down is over, write some text 
-		  if (distance < 0) {
-		    clearInterval(x);
-		    document.getElementById("demo").innerHTML = "MOVE ON IS NOW!";
-		  }
-		}, 1000);
-		</script>
 	</head>
 	<link rel="icon" type="image/png" href="images/favicon.png">
 	<body class="is-preload">
@@ -178,7 +148,6 @@
 						<div class="inner">
 							<ul class="copyright">
 								<li>&copy; SigEp Pennsylvania Theta</li>
-								<p id="move_on_timer"></p>
 							</ul>
 						</div>
 					</footer>
