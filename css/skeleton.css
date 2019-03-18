@@ -34,7 +34,7 @@
 .google-visualization-table-tr-even-nonstrict {
   background-color: white !important;
   color: black !important;
-  font-size: 1.15em;
+  font-size: 1.1em;
   line-height: 1.6;
   font-weight: 400;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -46,7 +46,7 @@
 .google-visualization-table-tr-odd-nonstrict {
   background-color: white !important;
   color: black !important;
-    font-size: 1.15em; /* currently ems cause chrome bug misinterpreting rems on body element */
+    font-size: 1.1em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -58,7 +58,7 @@
 .google-visualization-table-tr-sel-nonstrict {
   background-color: white !important;
   color: black !important;
-    font-size: 1.15em; /* currently ems cause chrome bug misinterpreting rems on body element */
+    font-size: 1.1em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -70,7 +70,7 @@
 .google-visualization-table-tr-over-nonstrict {
   background-color: white !important;
   color: black !important;
-    font-size: 1.15em; /* currently ems cause chrome bug misinterpreting rems on body element */
+    font-size: 1.1em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -81,7 +81,7 @@
 .google-visualization-table-th {
   border: 1px solid white !important;
   color: black !important;
-    font-size: 1.15em; /* currently ems cause chrome bug misinterpreting rems on body element */
+    font-size: 1.1em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -94,16 +94,16 @@
   background-color: white !important;
   background-image: none !important;
   color: black !important;
-    font-size: 1.15em; /* currently ems cause chrome bug misinterpreting rems on body element */
+    font-size: 1.1em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
-  font-weight: 400;
+  font-weight: 600;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #222; 
 }
 
 .google-visualization-table .gradient {
   background-image: none !important;
-    font-size: 1.15em; /* currently ems cause chrome bug misinterpreting rems on body element */
+    font-size: 1.1em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
