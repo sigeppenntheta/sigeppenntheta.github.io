@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <title>tt</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/skeleton.css">
+
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74339615-3"></script>
+      <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-74339615-3');
+    </script>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+     <div class="one-full column" style="margin-top: 5%">
+      <h4>Push Timer</h4>
+
+    <h1><div class="stopwatch"></div></h1>
+    <nav class="controls">
+     <a href="#" class="button" onClick="stopwatch.restart();">Start</a>
+     <a href="#" class="button" onClick="stopwatch.lap();">Finish</a>
+     <a href="#" class="button" onClick="stopwatch.stop();">Stop</a>
+     <a href="#" class="button" onClick="stopwatch.clear();">Clear</a>
+   </nav>
+
+   <form id="myForm" action="https://script.google.com/macros/s/AKfycbxnFFN206eP50nKigJkz1tw9v7uy-ca27b0rmN0a5wzKyCXu8I/exec" method="POST" target="hidden-form">
+
+
+
+    <select name="hill">
+     <option value="">Hill</option>
+     <option value="Hill 1">Hill 1</option>
+     <option value="Hill 2">Hill 2</option>
+     <option value="Hill 3">Hill 3</option>
+     <option value="Hill 4">Hill 4</option>
+   </select>
+
+    <select name="buggy">
+     <option value="">Buggy</option>
+     <option value="Barricuda">Barricuda</option>
+     <option value="Kraken">Kraken</option>
+     <option value="Hydra">Hydra</option>
+     <option value="Beyonce">Beyonce</option>
+   </select>
+
+
+   <input type="text" name="name" placeholder="Pusher">
+   <input type="number" step="0.01" name="time" placeholder="Time">
+   <input type="text" name="note" placeholder="Note">
+
+   <button type="submit" id="mySubmit" onclick="submit_form();">Submit</button>
+
+   <h4><ul class="results"></ul><h4>
+ </form>
+ <IFRAME style="display:none" name="hidden-form"></IFRAME>  
+
+ <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+ <script src="clock.js"></script>
+
+
+</div>
+</div>
+</div>
+
+</body>
+</html>
+<script type="text/javascript">
+  function submit_form() {
+    document.getElementById('myForm').submit();
+  }
+</script>
+
