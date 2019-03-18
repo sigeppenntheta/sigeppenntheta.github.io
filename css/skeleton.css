@@ -25,6 +25,56 @@
 - Media Queries
 */
 
+/***************************
+    Google Table CSS
+***************************/
+
+.google-visualization-table-tr-even,
+.google-visualization-table-tr-even td,
+.google-visualization-table-tr-even-nonstrict {
+  background-color: white !important;
+  color: black !important;
+}
+
+.google-visualization-table-tr-odd,
+.google-visualization-table-tr-odd td,
+.google-visualization-table-tr-odd-nonstrict {
+  background-color: white !important;
+  color: black !important;
+}
+
+.google-visualization-table-tr-sel,
+.google-visualization-table-tr-sel td,
+.google-visualization-table-tr-sel-nonstrict {
+  background-color: white !important;
+  color: black !important;
+}
+
+.google-visualization-table-tr-over,
+.google-visualization-table-tr-over td,
+.google-visualization-table-tr-over-nonstrict {
+  background-color: white !important;
+  color: black !important;
+}
+
+.google-visualization-table-td,
+.google-visualization-table-th {
+  border: 1px solid white !important;
+  color: black !important;
+}
+
+.google-visualization-table-tr-head,
+.google-visualization-table-tr-head td,
+.google-visualization-table-tr-head-nonstrict {
+  background-color: white !important;
+  background-image: none !important;
+  color: black !important;
+}
+
+.google-visualization-table .gradient {
+  background-image: none !important;
+}
+
 
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
