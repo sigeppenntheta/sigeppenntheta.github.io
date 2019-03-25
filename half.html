@@ -66,8 +66,7 @@
 
 <script type="text/javascript">
   function submit_form() {
-    setTimeout(function () { document.getElementById('myForm').submit(); }, 20);
-    setTimeout(function () { document.getElementById('myForm').reset(); }, 40);
-    setTimeout(function () { location.reload();}, 60);
+    document.getElementById('myForm').submit();
+    setTimeout(function () { location.reload();}, 200);
   }
 </script>
