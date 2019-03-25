@@ -29,35 +29,46 @@
 <body>
 
   <div class="container">
-     <div class="one-full column" style="margin-top: 5%">
-      <h4>Half App</h4>
+   <div class="one-full column" style="margin-top: 5%">
+    <h4>Half App</h4>
 
 
-      <script src="half-app/js/google-sheets-html.js" type="text/javascript"></script>
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="half-app/js/google-sheets-html.js" type="text/javascript"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-      <div id="table"></div>
-<br>
-      <div class="row">
+    <div id="table"></div>
+    <br>
+    <div class="row">
 
-       <form id="myForm" action="https://script.google.com/macros/s/AKfycbx9vOrkGJHQ9Le4Oulbcp6R6x3Ii7siy_ozTCfHxP8sEYzZ8VY-/exec" method="POST" target="hidden-form">
-
-
-        <input type="text" name="brother" placeholder="Brother's Name">
-
-        <input type="text" name="guest" placeholder=" + Numer of guests">
-
-        <button type="submit" id="mySubmit" onclick="submit_form();">I'm Going!</button>
-        <h6> Text half chair to change your response </h6>
-      </form>
-
-      <IFRAME style="display:none" name="hidden-form"></IFRAME>  
-
-    </div>
+     <form id="myForm" action="https://script.google.com/macros/s/AKfycbx9vOrkGJHQ9Le4Oulbcp6R6x3Ii7siy_ozTCfHxP8sEYzZ8VY-/exec" method="POST" target="hidden-form">
 
 
+      <input type="text" name="brother" placeholder="Brother's Name">
 
-  </div>
+      <select type="text" name="guest" placeholder="Guests">
+      <option value=""></option>
+      <option value="+1">+1</option>
+       <option value="+2">+2</option>
+       <option value="+3">+3</option>
+       <option value="+4">+4</option>
+       <option value="+5">+5</option>
+       <option value="+6">+6</option>
+       <option value="+7">+7</option>
+       <option value="+8">+8</option>
+       <option value="+9">+9</option>
+     </select>
+
+     <button type="submit" id="mySubmit" onclick="submit_form();">I'm Going!</button>
+     <!-- <h6> Text half chair to change your response </h6> -->
+   </form>
+
+   <IFRAME style="display:none" name="hidden-form"></IFRAME>  
+
+ </div>
+
+
+
+</div>
 </div>
 </div>
 
