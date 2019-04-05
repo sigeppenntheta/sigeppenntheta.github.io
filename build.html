@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-        
+
 <head>
 
   <!-- Style is Skeleton CSS. Build tracker by Taylor Tabb '18 '19 [http://tabb.me]. -->
@@ -41,64 +41,64 @@
       gtag('config', 'UA-74339615-3');
     </script>
 
-<script>
+    <script>
 
-    var countDownDate = new Date("Apr 5, 2019 15:00:00").getTime();
+      var countDownDate = new Date("Apr 5, 2019 15:00:00").getTime();
 
-    var x = setInterval(function() {
+      var x = setInterval(function() {
 
-      var now = new Date().getTime();
+        var now = new Date().getTime();
         
-      var distance = countDownDate - now;
+        var distance = countDownDate - now;
         
-      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
         
       // Output the result in an element with id="move_on_timer"
       document.getElementById("move_on_timer").innerHTML = "Move On In: " + days + " days " + hours + " hrs " + minutes + " min " + seconds + " sec ";
-     
+
       // When we have a move on time
       //   document.getElementById("demo").innerHTML = days + "d " + hours + "h "
       // + minutes + "m " + seconds + "s ";
-        
+
       // If the count down is over, write some text 
       if (distance < 0) {
         clearInterval(x);
-        document.getElementById("move_on_timer").innerHTML = "MOVE ON IS NOW!";
+        document.getElementById("move_on_timer").innerHTML = "BUILD WEEK IS GO!";
       }
     }, 1000);
-    </script>
+  </script>
 
-  </head>
-  <style>
+</head>
+<style>
 
-  .full {
-    width: 100%;
-  }
+.full {
+  width: 100%;
+}
 
-  .done {
-    /*  text-decoration: line-through;*/
-  }
+.done {
+  /*  text-decoration: line-through;*/
+}
 
-  .collapsible {
-    cursor: pointer;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-  }
+.collapsible {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+}
 
-  .active, .collapsible:hover {
-    /*  background-color: #555;*/
-  }
+.active, .collapsible:hover {
+  /*  background-color: #555;*/
+}
 
-  .content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-  }
+.content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
 </style>
 <body>
 
@@ -118,197 +118,130 @@
       <!--   <h6> ✂✓</h6> -->
       <div class="row">
         <h6 align="center">Wall/Platform/Roof Status: <span id="build_status"></span>% Complete </h6>
-<!--         <h6 align="center">Figure Build Status: <span id="figure_status"></span>% Complete</h6>
-        <h6 align="center">Structure Build Status: <span id="all_status"></span>% Complete</h6> -->
-        <div class="collapsible"> <button class="button-primary full">Blueprints</button></div>
-        <div class="content">   
-          <div class="three columns">
-<!--             <h6>Floor 1 Walls:</h6> -->
-            <select onChange="window.location.href=this.value">
-              <option value="https://www.sigep.fun/build">Floor 1 Walls:</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1A.pdf" class="done">1A ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1B.pdf" class="done">1B ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1C.pdf" class="done">1C ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1D.pdf" class="done">1D ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1E.pdf" class="done">1E ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1F.pdf" class="done">1F ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1G.pdf" class="done">1G ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1H.pdf" class="done">1H ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1I.pdf" class="done">1I ✓ [big warping]</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1J.pdf" class="done">1J ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1K.pdf" class="done">1K ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1L.pdf" class="done">1L ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1M.pdf" class="done">1M ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1N.pdf" class="done">1N ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/DO1.pdf" class="done">DO1 ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor1/DO2.pdf" class="done">DO2 ✓</option>
-            </select>
-          </div>
 
-          <div class="three columns">
-<!--             <h5>Floor 2 Walls:</h5> -->
-            <select onChange="window.location.href=this.value">
-<option value="https://www.sigep.fun/build">Floor 2 Walls:</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2A.pdf" class="done">2A ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2B.pdf" class="done">2B ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2C.pdf" class="done">2C ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2D.pdf" class="done">2D ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2E.pdf" class="done">2E ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2F.pdf" class="done">2F ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2G.pdf" class="done">2G ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2H.pdf" class="done">2H ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2I.pdf" class="done">2I ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2J.pdf" class="done">2J ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2K.pdf" class="done">2K ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2L.pdf" class="done">2L ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2M.pdf" class="done">2M ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2N.pdf" class="done">2N ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/DO3.pdf" class="done">DO3 ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/DO4.pdf" class="done">DO4 ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/walls/floor2/DO5.pdf" class="done">DO5 ✓</option>
-            </select>
-          </div>
+  <!-- <div class="collapsible"> <button class="button-primary full">Blueprints</button></div>
+  <div class="content">   
+    <div class="three columns">
 
-          <div class="three columns">
-<!--             <h5>Platforms:</h5> -->
-            <select onChange="window.location.href=this.value">
-<option value="https://www.sigep.fun/build">Platforms:</option>
-              <option value="http://sigep.fun/build-app/blueprints/platforms/floor1/P1A.pdf" class="done">Floor 1: P1 A ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/platforms/floor1/P1B.pdf" class="done">Floor 1: P1 B ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/platforms/floor1/P1C.pdf" class="done">Floor 1: P1 C ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/platforms/floor1/P1D.pdf" class="done">Floor 1: P1 D ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/platforms/floor2/P2A.pdf" class="done">Floor 2: P2 A ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/platforms/floor2/P2B.pdf">Floor 2: P2 B</option>
-            </select>
-          </div>
-
-          <div class="three columns">
-<!--             <h5>Roof:</h5> -->
-            <select onChange="window.location.href=this.value">
-              <option value="https://www.sigep.fun/build">Roof:</option>
-              <option value="http://sigep.fun/build-app/blueprints/roof/P3A.pdf" class="done">3A ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/roof/P3B.pdf" class="done">3B ✓</option>
-              <option value="http://sigep.fun/build-app/blueprints/roof/P3C.pdf" class="done">3C ✓</option>
-            </select>
-          </div>
-        </div>
-
-      </div>
-      <div class="row">
-       <div class="collapsible"> <button class="button-primary full">Rooms</button></div>
-
-       <div class="content">  
-
-        <table class="u-full-width">
-  <thead>
-    <tr>
-      <th>Room</th>
-      <th>Chairs</th>
-      <th>Note</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Offrenda</td>
-      <td>Nico, Leo, Phil, Logan</td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Plaza</td>
-      <td>Manav, Dylan, Nathan</td>
-      <td> </td>
-    </tr>
-     <tr>
-      <td>Stairs</td>
-      <td>Taimur, Eric V, Gabe, Kleiman</td>
-      <td> </td>
-    </tr>
-     <tr>
-      <td>Concert</td>
-      <td>Coy, James, John M, Contesse</td>
-      <td> </td>
-    </tr>
-     <tr>
-      <td>Mansion</td>
-      <td>Fitzy, Ryan G, David M, Noel</td>
-      <td> </td>
-    </tr>
-     <tr>
-      <td>Exterior</td>
-      <td>Kota, Christoph, Sprong</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-              
-
-        </div>
-
-      </div>
-
-      <div class="row">
-       <div class="collapsible"> <button class="button-primary full">Figures</button></div>
-
-       <div class="content">  
-
-        <table class="u-full-width">
-  <thead>
-    <tr>
-      <th>Figure</th>
-      <th>Leads</th>
-      <th>Note</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Big Pepita</td>
-      <td>Taylor</td>
-      <td>Hit me up if you want to help</td>
-    </tr>
-    <tr>
-      <td>Skeleton</td>
-      <td>Brandt</td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-        </div>
-      </div>
-      <div class="row">
-       <div class="collapsible"> <button class="button full">Layout</button></div>
-
-       <div class="content">  
-        </div>
-       <h6 align="center"> <span id="move_on_timer"></span></h6>
-       <h6 align="center"><a href="https://open.spotify.com/playlist/0H7HCu5GimyBhBjAi2MfiM?si=bjMPIUwfQNurdUUBm8ZfFg">🎶</a></h6>
-
-       
-      </div>
+      <select onChange="window.location.href=this.value">
+        <option value="https://www.sigep.fun/build">Floor 1 Walls:</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1A.pdf" class="done">1A ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1B.pdf" class="done">1B ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1C.pdf" class="done">1C ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1D.pdf" class="done">1D ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1E.pdf" class="done">1E ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1F.pdf" class="done">1F ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1G.pdf" class="done">1G ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1H.pdf" class="done">1H ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1I.pdf" class="done">1I ✓ [big warping]</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1J.pdf" class="done">1J ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1K.pdf" class="done">1K ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1L.pdf" class="done">1L ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1M.pdf" class="done">1M ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor1/1N.pdf" class="done">1N ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor1/DO1.pdf" class="done">DO1 ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor1/DO2.pdf" class="done">DO2 ✓</option>
+      </select>
     </div>
-    <script>
-      var coll = document.getElementsByClassName("collapsible");
-      var i;
 
-      for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-          this.classList.toggle("active");
-          var content = this.nextElementSibling;
-          if (content.style.maxHeight){
-            content.style.maxHeight = null;
-          } else {
-            content.style.maxHeight = content.scrollHeight + "px";
-          } 
-        });
-      }
-    </script>
-    <script type="text/javascript">
-      var finished=document.getElementsByClassName('done').length;
-      var total=42;
-      var percent=100*(finished/total);
-      var build_status = Math.round(percent);
-      document.getElementById("build_status").innerHTML = build_status;
-    </script>
+    <div class="three columns">
+
+      <select onChange="window.location.href=this.value">
+        <option value="https://www.sigep.fun/build">Floor 2 Walls:</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2A.pdf" class="done">2A ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2B.pdf" class="done">2B ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2C.pdf" class="done">2C ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2D.pdf" class="done">2D ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2E.pdf" class="done">2E ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2F.pdf" class="done">2F ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2G.pdf" class="done">2G ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2H.pdf" class="done">2H ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2I.pdf" class="done">2I ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2J.pdf" class="done">2J ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2K.pdf" class="done">2K ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2L.pdf" class="done">2L ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2M.pdf" class="done">2M ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor2/2N.pdf" class="done">2N ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor2/DO3.pdf" class="done">DO3 ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor2/DO4.pdf" class="done">DO4 ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/walls/floor2/DO5.pdf" class="done">DO5 ✓</option>
+      </select>
+    </div>
+
+    <div class="three columns">
+
+      <select onChange="window.location.href=this.value">
+        <option value="https://www.sigep.fun/build">Platforms:</option>
+        <option value="http://sigep.fun/build-app/blueprints/platforms/floor1/P1A.pdf" class="done">Floor 1: P1 A ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/platforms/floor1/P1B.pdf" class="done">Floor 1: P1 B ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/platforms/floor1/P1C.pdf" class="done">Floor 1: P1 C ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/platforms/floor1/P1D.pdf" class="done">Floor 1: P1 D ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/platforms/floor2/P2A.pdf" class="done">Floor 2: P2 A ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/platforms/floor2/P2B.pdf">Floor 2: P2 B</option>
+      </select>
+    </div>
+
+    <div class="three columns">
+
+      <select onChange="window.location.href=this.value">
+        <option value="https://www.sigep.fun/build">Roof:</option>
+        <option value="http://sigep.fun/build-app/blueprints/roof/P3A.pdf" class="done">3A ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/roof/P3B.pdf" class="done">3B ✓</option>
+        <option value="http://sigep.fun/build-app/blueprints/roof/P3C.pdf" class="done">3C ✓</option>
+      </select>
+    </div>
+  </div>
+
+</div> -->
+<div class="row">
+
+  <a href="http://sigep.fun/build-app/blueprints/layout/elevations.pdf" class="button">Elevations</a>
+  <a href="http://sigep.fun/build-app/blueprints/layout/leveling.pdf" class="button">Leveling</a>
+  <a href="http://sigep.fun/build-app/blueprints/layout/pathing.pdf" class="button">Pathing</a>
+  <a href="http://sigep.fun/build-app/blueprints/layout/assembly_order.pdf" class="button">Assembly Order</a>
+  <a href="http://sigep.fun/build-app/blueprints/layout/railing.pdf" class="button">Railing</a>
+  <a href="http://sigep.fun/build-app/blueprints/layout/electrical.pdf" class="button">Electrical</a>
+  <a href="http://sigep.fun/build-app/blueprints/layout/room_layout.pdf" class="button">Room Layout</a>
+  <a href="http://sigep.fun/build-app/blueprints/layout/floor_1_build.pdf" class="button">Floor 1 Build</a>
+  <a href="http://sigep.fun/build-app/blueprints/layout/floor_2_build.pdf" class="button">Floor 2 Build</a>
+
+</div>
+
+
+<!-- <div class="row">
+ <div class="collapsible"> <button class="button full">Layout</button></div>
+
+ <div class="content">  
+ </div> -->
+ <h6 align="center"> <span id="move_on_timer"></span></h6>
+ <h6 align="center"><a href="https://open.spotify.com/playlist/0H7HCu5GimyBhBjAi2MfiM?si=bjMPIUwfQNurdUUBm8ZfFg">🎶</a></h6>
+
+
+</div>
+</div>
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.maxHeight){
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      } 
+    });
+  }
+</script>
+<script type="text/javascript">
+  var finished=document.getElementsByClassName('done').length;
+  var total=42;
+  var percent=100*(finished/total);
+  var build_status = Math.round(percent);
+  document.getElementById("build_status").innerHTML = build_status;
+</script>
 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
