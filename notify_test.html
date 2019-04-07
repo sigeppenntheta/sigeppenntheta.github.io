@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Style is Skeleton CSS. Build tracker by Taylor Tabb '18 '19 [http://tabb.me]. -->
+
+
+  <!-- Basic Page Needs | You can replace your description and name with your description and name. The description may show up in search results.
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+
+  <!-- Mobile Specific Metas | Ensures the site looks good on mobile
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- FONT | To pick a new font, head to https://fonts.google.com/
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS | These are the stylesheets that make this site look as it does
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="build-app/css/normalize.css">
+    <link rel="stylesheet" href="build-app/css/skeleton.css">
+
+
+  <!-- Favicon | This is the little icon that shows up above the URL bar and in bookmarks
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="build-app/image/png" href="build-app/images/favicon.png">
+    <link rel="apple-touch-icon" href="build-app/images/custom_icon.png">
+
+    <!-- Google Analytics to taylor -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74339615-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-74339615-3');
+    </script>
+
+    <script>
+
+      var countDownDate = new Date("Apr 5, 2019 15:00:00").getTime();
+
+      var x = setInterval(function() {
+
+        var now = new Date().getTime();
+        
+        var distance = countDownDate - now;
+        
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+      // Output the result in an element with id="move_on_timer"
+      document.getElementById("move_on_timer").innerHTML = "Move On In: " + days + " days " + hours + " hrs " + minutes + " min " + seconds + " sec ";
+      
+      // When we have a move on time
+      //   document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+      // + minutes + "m " + seconds + "s ";
+      
+      // If the count down is over, write some text 
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("move_on_timer").innerHTML = "MOVE ON IS NOW!";
+      }
+    }, 1000);
+  </script>
+
+  <style>
+
+  .full {
+    width: 100%;
+  }
+
+  .done {
+    /*  text-decoration: line-through;*/
+  }
+
+  .collapsible {
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+  }
+
+  .active, .collapsible:hover {
+    /*  background-color: #555;*/
+  }
+
+  .content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+</style>
+<body>
+
+
+  <!-- Primary Page Layout | This is for you to edit! Replace Moana's info with yours :)
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+    <div class="container" style="margin-top: 10%">
+      <div class="row">
+        <div class="twelve columns">
+          <div class="four columns offset-by-four">
+            <img src="build-app/images/cocologo.png" width="100%">
+          </div>
+        </div>
+      </div>
+      <br>  
+      <div class="row">
+
+        <h4>Booth Notifier</h4>
+
+
+        <form id="myForm" action="https://us-east1-flipper-1000.cloudfunctions.net/pusher-test" method="GET">
+
+         <input type="text" name="message" placeholder="message to send">
+         <input type="text" name="passkey" placeholder="password">
+
+
+         <button type="submit" id="mySubmit" onclick="submit_form();">Send</button>
+
+       </form>
+
+       <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+
+       
+     </div>
+   </div>
+   <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight){
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        } 
+      });
+    }
+  </script>
+  <script type="text/javascript">
+    var finished=document.getElementsByClassName('done').length;
+    var total=42;
+    var percent=100*(finished/total);
+    var build_status = Math.round(percent);
+    document.getElementById("build_status").innerHTML = build_status;
+  </script>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
+<script type="text/javascript">
+  function submit_form() {
+    document.getElementById('myForm').submit();
+  }
+</script>
