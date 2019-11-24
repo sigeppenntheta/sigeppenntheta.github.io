@@ -15,7 +15,7 @@ google.load('visualization', '1', {
 var visualization;
 
 function drawVisualization() {
-    var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1qSJ5s5ZLZR7wHgG0ai4bBQWRt4k-09fxttjCRDxFgF4/edit?usp=sharing');
+    var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1jEplQAB1X4Gooq9VkevEhTUwWNyeZ27A2kCKWxWrpPA/edit?usp=sharing');
     query.setQuery('SELECT A, B, C');
     // query.setQuery('SELECT B, C, D, E label B "Hill", C "Name"');
     query.send(handleQueryResponse);
