@@ -15,7 +15,7 @@ google.load('visualization', '1', {
 var visualization;
 
 function drawVisualization() {
-    var query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=1ehSMpJhYCFMUv1zHArN0akWanVfMMSmFMrm8ZukWc0k&output=html&usp=sharing');
+    var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1ehSMpJhYCFMUv1zHArN0akWanVfMMSmFMrm8ZukWc0k/edit#gid=0');
     query.setQuery('SELECT B, C, D, E');
     query.send(handleQueryResponse);
 }
