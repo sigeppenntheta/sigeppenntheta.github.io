@@ -17,13 +17,12 @@ var visualization;
 function drawVisualization() {
     var query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=1ehSMpJhYCFMUv1zHArN0akWanVfMMSmFMrm8ZukWc0k&output=html&usp=sharing');
     query.setQuery('SELECT B, C, D, E');
-    // query.setQuery('SELECT B, C, D, E label B "Hill", C "Name"');
     query.send(handleQueryResponse);
 }
 
 function handleQueryResponse(response) {
     if (response.isError()) {
-        alert('There was a problem with your query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+        alert('Half app analyzer has detected reduced functionality! Not to worry, contact brother Taylor Tabb (www.tabb.me) and inform him there was a problem with your query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
         return;
     }
     var data = response.getDataTable();
