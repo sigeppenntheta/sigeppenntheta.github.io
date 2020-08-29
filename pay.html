@@ -1,3 +1,7 @@
+<!-- This is the payment terminal for sigep penn theta! It uses checkoutpage.co. You can manage payments at https://checkoutpage.co/
+
+This was built by Taylor Tabb, hit him up if you have questions, but honestly it's very straight forward. -->
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -13,7 +17,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+<!-- 		this script is needed to accept payments -->
 		<script type="text/javascript" src="https://checkoutpage.co/js/overlay.js" defer></script>
+
 	</head>
 	<link rel="icon" type="image/png" href="images/favicon.png">
 	<body class="is-preload">
@@ -49,28 +56,30 @@
 						<!-- One -->
 							<section id="one" class="tiles">
 
-								<article class="cp-button" data-seller="5f499705c78e5c001710feb5" data-checkout="fall-membership-dues">
+<!-- this page contains four different "items" you can purchase. You can edit the settings (cost, name, etc...) by logging into https://checkoutpage.co/pages and editing the listings. You'll below this note each section of this page is basically a button to open up a payment pop-up for each respective item (dues, formal tickets, etc...). Each of the items in the "cp-button" class have parameters "data-seller" and "data-checkout" which must match the items in checkoutpage.co— and so long as those parameters do match, the info in the payment pop ups on this page will match what you've set them to on checkoutpage.co. if you add new items there, you'll need to add new sections on this page. you can just copy and paste one of the sections below and update teh "data-checkout" to match the new items numbers. -->
+
+								<article class="cp-button" data-seller="sigepcmu" data-checkout="fall-membership-dues">
 									<header class="major">
 										<h3>Fall Dues</a></h3>
 										<p>Membership Dues</p>
 									</header>
 								</article>
 
-								<article class="cp-button" data-seller="5f499705c78e5c001710feb5" data-checkout="spring-membership-dues">
+								<article class="cp-button" data-seller="sigepcmu" data-checkout="spring-membership-dues">
 									<header class="major">
 										<h3>Spring Dues</a></h3>
 										<p>Membership Dues</p>
 									</header>
 								</article>
 
-								<article class="cp-button" data-seller="5f499705c78e5c001710feb5" data-checkout=formal-tickets>
+								<article class="cp-button" data-seller="sigepcmu" data-checkout=formal-tickets>
 									<header class="major">
 										<h3>Formal Ticket</a></h3>
 										<p>Formal Tickets and Other Costs</p>
 									</header>
 								</article>
 
-								<article class="cp-button" data-seller="5f499705c78e5c001710feb5" data-checkout="other-transactions">
+								<article class="cp-button" data-seller="sigepcmu" data-checkout="other-transactions">
 									<header class="major">
 										<h3>Other Transactions</a></h3>
 										<p>Meal Plan, etc...</p>
