@@ -43,6 +43,9 @@ class Stopwatch {
     
     clear() {
         clearChildren(this.results);
+        this.times = [ 0, 0, 0 ];
+        this.print(this.times);
+
     }
     
     step(timestamp) {
