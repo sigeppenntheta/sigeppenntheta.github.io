@@ -2,92 +2,86 @@
 <html lang="en">
 <head>
 
-  <meta charset="utf-8">
-  <title>Menu</title>
+	<meta charset="utf-8">
+	<title>Menu</title>
 
-<link rel="apple-touch-icon" href="custom_icon_menu.png">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- <link rel="apple-touch-startup-image" href="https://3wga6448744j404mpt11pbx4-wpengine.netdna-ssl.com/startup-image.png">
- -->
-<!-- 
- test -->
- <meta name="apple-mobile-web-app-title" content="SigEp Menu">
- <meta name="apple-mobile-web-app-capable" content="yes">
- <meta name="apple-mobile-web-app-capable" content="yes">
- <meta name="apple-mobile-web-app-status-bar-style" content="purple">
-   <link rel="icon" type="image/png" href="custom_icon_menu.png">
+	<link rel="apple-touch-icon" href="custom_icon_menu.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+	<meta name="apple-mobile-web-app-title" content="SigEp Menu">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="purple">
+	<link rel="icon" type="image/png" href="custom_icon_menu.png">
 
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/skeleton.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="icon" type="image/png" href="images/favicon.png">
+	<link rel="stylesheet" href="css/main.css">
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-74339615-3"></script>
-  <script src="https://www.google.com/jsapi" type="text/javascript"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-74339615-3');
-  </script>
+	<script rel="preload" src="https://script.sheetsu.com/"></script>
+	<script rel="preload" src="js/main.js" type="text/javascript"></script>
 
 </head>
 
 <body>
 
-  <div class="container">
-   <div class="one-full column" style="margin-top: 5%">
-    <h4>Menu</h4>
-
-
-    <script src="js/google-sheets-html.js" type="text/javascript"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
-<div id="table"></div>
-  <!--       <br>
-    <div class="row">
-
-     <form id="myForm" action="https://script.google.com/macros/s/AKfycbx9vOrkGJHQ9Le4Oulbcp6R6x3Ii7siy_ozTCfHxP8sEYzZ8VY-/exec" method="POST" target="hidden-form">
-
-
-      <input type="text" name="brother" placeholder="Brother's Name">
-
-      <select type="text" name="guest" placeholder="Guests">
-      <option value=""></option>
-      <option value="+1">+1</option>
-       <option value="+2">+2</option>
-       <option value="+3">+3</option>
-       <option value="+4">+4</option>
-       <option value="+5">+5</option>
-       <option value="+6">+6</option>
-       <option value="+7">+7</option>
-       <option value="+8">+8</option>
-       <option value="+9">+9</option>
-     </select>
-
-     <button type="submit" id="mySubmit" onclick="submit_form();">I'm Going!</button>
-
-   </form>
-<h6> This form clears every wednesday to prepare for next week's half price! <br> If you select going and then no longer can go, text half chair.</h6>
-   <IFRAME style="display:none" name="hidden-form"></IFRAME>  
-
- </div> -->
-
-
-
-</div>
-</div>
-</div>
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<h1 class="title">SigEp Menu</h1>
+				<div class="table100">
+					<table>
+						<thead>
+							<tr class="table100-head">
+								<th class="column1">Day</th>
+								<th class="column2">Lunch</th>
+								<th class="column3">Dinner</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="column1">Monday</td>
+								<td class="column2" id="monday-lunch"></td>
+								<td class="column3" id="monday-dinner"></td>
+							</tr>
+							<tr>
+								<td class="column1">Tuesday</td>
+								<td class="column2" id="tuesday-lunch"></td>
+								<td class="column3" id="tuesday-dinner"></td>
+							</tr>
+							<tr>
+								<td class="column1">Wednesday</td>
+								<td class="column2" id="wednesday-lunch"></td>
+								<td class="column3" id="wednesday-dinner"></td>
+							</tr>
+							<tr>
+								<td class="column1">Thursday</td>
+								<td class="column2" id="thursday-lunch"></td>
+								<td class="column3" id="thursday-dinner"></td>
+							</tr>
+							<tr>
+								<td class="column1">Friday</td>
+								<td class="column2" id="friday-lunch"></td>
+								<td class="column3">N/A</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
 
 </body>
+
 </html>
 
 <script type="text/javascript">
-  function submit_form() {
-    document.getElementById('myForm').submit();
-    setTimeout(function () { location.reload();}, 180);
-  }
+	function repeat() {
+		main()
+		setTimeout(repeat, 250000);
+	}
+	repeat();
 </script>
