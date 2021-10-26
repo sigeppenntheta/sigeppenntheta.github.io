@@ -184,7 +184,7 @@ tbody tr:hover {
 .column1 {
   width: 150px;
   padding-left: 10%;
-  text-align: center;
+  text-align: left;
   font-weight: 600;
 }
 
