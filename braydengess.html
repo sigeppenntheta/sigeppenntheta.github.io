@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <title>Brayden Gess</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    </head>
+    <body class="is-preload">
+
+        <div id="placehere" style="width:50%; height:50%; margin-left:25%"></div>
+
+
+        <!-- Scripts -->
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/jquery.scrolly.min.js"></script>
+            <script src="assets/js/jquery.scrollex.min.js"></script>
+            <script src="assets/js/browser.min.js"></script>
+            <script src="assets/js/breakpoints.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
+            <script>
+                var images = [
+                    'img1.jpg',
+                    'img2.jpg',
+                    'img3.png'
+                ]
+
+                var image = images[Math.floor(Math.random()*images.length)];
+                var elem = document.createElement("img");
+                elem.src = "brayden_photos/" + image;
+                elem.setAttribute("width", "100%");
+                document.getElementById("placehere").appendChild(elem);
+
+            </script>
+
+    </body>
+</html>
