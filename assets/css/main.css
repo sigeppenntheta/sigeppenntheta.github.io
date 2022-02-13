@@ -38,9 +38,11 @@ ul li {
 	list-style-type: none;
 	font-size: 1.1em;
 }
-ul li a{
+
+ul li a {
 
 }
+
 body {
 	line-height: 1;
 }
@@ -53,10 +55,10 @@ blockquote, q {
 	quotes: none;
 }
 
-	blockquote:before, blockquote:after, q:before, q:after {
-		content: '';
-		content: none;
-	}
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
 
 table {
 	border-collapse: collapse;
@@ -114,16 +116,16 @@ input, select, textarea {
 		background: #242943;
 	}
 
-		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
-			-moz-animation: none !important;
-			-webkit-animation: none !important;
-			-ms-animation: none !important;
-			animation: none !important;
-			-moz-transition: none !important;
-			-webkit-transition: none !important;
-			-ms-transition: none !important;
-			transition: none !important;
-		}
+	body.is-preload *, body.is-preload *:before, body.is-preload *:after {
+		-moz-animation: none !important;
+		-webkit-animation: none !important;
+		-ms-animation: none !important;
+		animation: none !important;
+		-moz-transition: none !important;
+		-webkit-transition: none !important;
+		-ms-transition: none !important;
+		transition: none !important;
+	}
 
 /* Type */
 
@@ -505,7 +507,7 @@ input, select, textarea {
 		}
 
 			.row > * {
-				padding: 0 0 0 2em;
+				padding: 0 0 0 0;
 			}
 
 			.row.gtr-uniform {
@@ -748,7 +750,7 @@ input, select, textarea {
 				}
 
 					.row > * {
-						padding: 0 0 0 2em;
+						padding: 0 0 0 0;
 					}
 
 					.row.gtr-uniform {
@@ -993,7 +995,7 @@ input, select, textarea {
 				}
 
 					.row > * {
-						padding: 0 0 0 1.5em;
+						padding: 0 0 0 0;
 					}
 
 					.row.gtr-uniform {
@@ -1238,7 +1240,7 @@ input, select, textarea {
 				}
 
 					.row > * {
-						padding: 0 0 0 1.5em;
+						padding: 0 0 0 0;
 					}
 
 					.row.gtr-uniform {
@@ -1483,7 +1485,7 @@ input, select, textarea {
 				}
 
 					.row > * {
-						padding: 0 0 0 1.25em;
+						padding: 0 0 0 0;
 					}
 
 					.row.gtr-uniform {
@@ -1728,7 +1730,7 @@ input, select, textarea {
 				}
 
 					.row > * {
-						padding: 0 0 0 1.25em;
+						padding: 0 0 0 0;
 					}
 
 					.row.gtr-uniform {
