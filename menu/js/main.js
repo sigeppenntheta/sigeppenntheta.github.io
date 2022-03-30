@@ -73,6 +73,8 @@ function successFunc(data) {
     document.getElementById("thursday-dinner").innerHTML = data[3]["Dinner"];
 
     document.getElementById("friday-lunch").innerHTML = data[4]["Lunch"];
+    
+    document.getElementById("last-updated").innerHTML = data[4]["Dinner"];
 
     setDataCookies(data);
 }
