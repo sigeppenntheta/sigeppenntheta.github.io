@@ -53,6 +53,8 @@ function setDataCookies(data) {
 
     setCookie("friday-lunch", data[4]["Lunch"], 1);
 
+    setCookie("last-updated", data[4]["Dinner"], 1);
+
     // console.log('saving cookies');
 }
 
@@ -73,6 +75,8 @@ function successFunc(data) {
     document.getElementById("thursday-dinner").innerHTML = data[3]["Dinner"];
 
     document.getElementById("friday-lunch").innerHTML = data[4]["Lunch"];
+
+    document.getElementById("last-updated").innerHTML = "Last Updated: " + data[4]["Dinner"];
 
     setDataCookies(data);
 }
@@ -95,6 +99,8 @@ function loadDataCookies() {
     document.getElementById("thursday-dinner").innerHTML = getCookie("thursday-dinner");
 
     document.getElementById("friday-lunch").innerHTML = getCookie("friday-lunch");
+
+    document.getElementById("last-updated").innerHTML = "Last Updated: " + getCookie("last-updated");
 }
 
 // Read whole spreadsheet

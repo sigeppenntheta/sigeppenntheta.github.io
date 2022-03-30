@@ -81,6 +81,15 @@ iframe {
     color: white;
 }
 
+#last-updated {
+    font-size: 20px;
+    text-align: center;
+    bottom: -60px;
+    position: relative;
+    font-weight: 400;
+    color: #e3e3e3;
+}
+
 
 /*//////////////////////////////////////////////////////////////////
 [ Table ]*/
