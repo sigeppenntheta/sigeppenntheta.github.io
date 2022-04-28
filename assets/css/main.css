@@ -2742,7 +2742,7 @@ input, select, textarea {
 			cursor: default;
 			height: 30vh;
 			max-height: 40em;
-			min-height: 10em;
+			min-height: 15em;
 			overflow: hidden;
 			position: relative;
 			width: 40%;
