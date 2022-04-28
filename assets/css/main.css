@@ -2740,9 +2740,9 @@ input, select, textarea {
 			background-repeat: no-repeat;
 			background-size: cover;
 			cursor: default;
-			height: 30vh;
+			height: 40vh;
 			max-height: 40em;
-			min-height: 15em;
+			min-height: 20em;
 			overflow: hidden;
 			position: relative;
 			width: 40%;
@@ -2819,34 +2819,33 @@ input, select, textarea {
 				opacity: 0;
 			}
 
-			.tiles article:nth-child(4n - 0), .tiles article:nth-child(4n - 3) {
+			.tiles article:nth-child(4n - 1), .tiles article:nth-child(4n - 2) {
 				width: 60%;
 			}
 
 			.tiles article:nth-child(6n - 5):before {
-				background-color: #9832af;
+				background-color: #6fc3df;
 			}
 
 			.tiles article:nth-child(6n - 4):before {
-				background-color: #bc3fd8;
+				background-color: #8d82c4;
 			}
 
 			.tiles article:nth-child(6n - 3):before {
-				background-color: #d53624;
+				background-color: #ec8d81;
 			}
 
 			.tiles article:nth-child(6n - 2):before {
-				background-color: #ab3232;
+				background-color: #e7b788;
 			}
 
 			.tiles article:nth-child(6n - 1):before {
-				background-color: #c08d35;
+				background-color: #8ea9e8;
 			}
 
-			.tiles article:nth-child(6n - 0):before {
-				background-color: #e49e2d;
+			.tiles article:nth-child(6n):before {
+				background-color: #87c5a4;
 			}
-
 
 		@media screen and (max-width: 1280px) {
 
