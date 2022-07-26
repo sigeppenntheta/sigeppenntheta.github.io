@@ -7,8 +7,51 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+
+			#wrapper {
+				transition: none !important;
+				transition-delay: 0 !important;
+				padding-top: 0 !important;
+			}
+
+			.video-container {
+				position: relative;
+			}
+
+			.video-container video {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				object-fit: cover;
+				z-index: 0;
+			}
+
+			body {
+				background-color: #2e3450;
+			}
+
+			#banner {
+				background-image: none !important;
+			}
+
+			#banner:after {
+				opacity: 0;
+			}
+
+			#inner-title {
+				z-index: 1;
+			}
+
+			footer {
+				background-color: #242943 !important;
+				padding: 3em;
+			}
+
+		</style>
 	</head>
-	<body class="is-preload">
+	<!-- <body class="is-preload"> -->
+	<body>
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -33,21 +76,25 @@
 					</nav>
 
 				<!-- Banner -->
-				<section id="banner" class="major">
-					<div class="inner">
+				<section id="banner" class="major video-container">
+					<video autoplay muted loop>
+						<source src="images/fsl/banner.mp4" type="video/mp4" />
+					</video>
+					<div class="inner" id="inner-title">
 						<header class="major" align="center">
 							<h1>FSL Block Party</h1>
 							<p> Saturday, 9/3, 2pm at the Greek Quad and Greek Row! Hang out with all of Fraternity & Sorority Life. </p>
 						</header>
 						<div class="actions" align="center">
-								<a href="fsl_block_party_checkin.html" class="button scrolly">Enter the Raffle</a>
+								<a href="fsl_block_party_checkin.html" class="button">Enter the Raffle</a>
 						</div>
 					</div>
+				</div>
 				</section>
 
 				<!-- Main -->
 
-				<section class="spotlights">
+				<section class="spotlights" style="padding-top: 3em;">
 				<section>
 					<div class="content">
 						<div class="inner">
