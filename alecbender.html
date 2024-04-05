@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Alec Bender - Benda Bomb</title>
+    <title>Google</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
@@ -25,11 +25,10 @@
     </style>
 </head>
 <body class="is-preload">
-    <div id="placehere" style="width:50%; height:50%; margin-left:25%; position: relative;"></div> <!-- Changed div position to relative -->
-
     <p id="message">YOU'RE OFFICIALLY A CACK cause you fell for a phishing attack. Download your certification by clicking the button.</p>
+    <div id="placehere" style="width:50%; height:50%; margin-left:25%; position: relative;"></div>
 
-    <button id="movingBenda" onmouseover="moveBenda()">Download Certificate</button>
+    <button id="movingButton" onmouseover="moveBenda()">Download Certificate</button>
 
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.scrolly.min.js"></script>
@@ -38,6 +37,7 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/benda.js"></script>
     <script>
         var images = [
             'img1.png',
@@ -61,14 +61,6 @@
         elem.src = "alec_photos/" + image;
         elem.setAttribute("width", "100%");
         document.getElementById("placehere").appendChild(elem);
-
-        function moveBenda() {
-            var x = Math.random() * window.innerWidth;
-            var y = Math.random() * window.innerHeight;
-            
-            document.getElementById("movingBenda").style.left = x + "px";
-            document.getElementById("movingBenda").style.top = y + "px";
-        }
     </script>
 </body>
 </html>
