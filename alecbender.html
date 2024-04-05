@@ -6,12 +6,38 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        <style>
+            #movingButton {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-image: url('alec_photos/img3.png'); 
+                background-size: cover;
+                width: 200px; 
+                height: 100px;
+                border: none;
+                cursor: default; 
+            }
+            #message {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-weight: bold; 
+                font-size: 24px; 
+                color: #333; 
+            }
+        </style>
     </head>
     <body class="is-preload">
-        <p>YOU'RE OFFICIALLY A CACK cause you fell for a phishing attack</p>
+        <p id="message">YOU'RE OFFICIALLY A CACK cause you fell for a phishing attack. Download your certification by clicking the button.</p>
 
         <div id="placehere" style="width:50%; height:50%; margin-left:25%"></div>
 
+        <body onload="moveBenda()">
+
+        <button id="movingBenda" onmouseover="moveBenda()"></button>
 
         <!-- Scripts -->
             <script src="assets/js/jquery.min.js"></script>
@@ -44,6 +70,15 @@
                 elem.src = "alec_photos/" + image;
                 elem.setAttribute("width", "100%");
                 document.getElementById("placehere").appendChild(elem);
+
+
+                function moveBenda() {
+                    var x = Math.random() * window.innerWidth;
+                    var y = Math.random() * window.innerHeight;
+                    
+                    document.getElementById("movingBenda").style.left = x + "px";
+                    document.getElementById("movingBenda").style.top = y + "px";
+                }
 
             </script>
 
