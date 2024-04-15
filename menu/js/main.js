@@ -122,7 +122,6 @@ function fetchFunc() {
         });
 }
 
-
 // Code ran on load
 // If there are cookies, load value from cookies
 // Otherwise, query sheet for values
