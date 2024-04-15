@@ -1,5 +1,3 @@
-import Sheetsu from 'sheetsu';
-
 // Sets a cookie with name and value for optionally given duration of minutes
 function setCookie(name,value,minutes) {
     var expires = "";
