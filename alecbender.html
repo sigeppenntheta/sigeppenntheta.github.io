@@ -44,6 +44,10 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/benda.js"></script>
     <script>
+        function playSound() {
+            var audio = new Audio("./sounds/bendaBomb.mp3") 
+            audio.play();
+        }
         var images = [
             'img1.png',
             'img2.png',
@@ -68,9 +72,10 @@
         elem.src = "alec_photos/" + image;
         elem.setAttribute("width", "100%");
         document.getElementById("placehere").appendChild(elem);
-
-        
-
+        window.onload = function() {
+            playSound();
+            setInterval(playSound, 3000);
+        };
     </script>
 </body>
 </html>

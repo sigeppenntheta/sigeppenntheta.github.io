@@ -4,5 +4,5 @@ function moveBenda() {
     
     document.getElementById("movingButton").style.left = x + "px";
     document.getElementById("movingButton").style.top = y + "px";
-    new Audio("./sounds/bendaBomb.mp3").play() 
+    
 }
