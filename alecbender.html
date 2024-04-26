@@ -72,10 +72,10 @@
         elem.src = "alec_photos/" + image;
         elem.setAttribute("width", "100%");
         document.getElementById("placehere").appendChild(elem);
-        window.onload = function() {
+        document.addEventListener("click", function() {
             playSound();
-            setInterval(playSound, 3000);
-        };
+            setInterval(playSound, 5000);
+        });
     </script>
 </body>
 </html>

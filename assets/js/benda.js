@@ -4,5 +4,4 @@ function moveBenda() {
     
     document.getElementById("movingButton").style.left = x + "px";
     document.getElementById("movingButton").style.top = y + "px";
-    
 }
