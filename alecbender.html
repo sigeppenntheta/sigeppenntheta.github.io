@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Google</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+        #movingButton {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px; 
+            height: 25px;
+            border: none;
+            cursor: default; 
+            font-size: 15px; 
+            font-weight: bold; 
+            background-color: rgb(58, 58, 164);
+            color: white;
+        }
+
+        #message {
+            font-weight: bold; 
+            font-size: 24px; 
+            color: #333; 
+            text-align: center; 
+        }
+    </style>
+</head>
+<body class="is-preload">
+    <p id="message">YOU'RE OFFICIALLY A CACK cause you fell for a phishing attack. Download your certificate by clicking the button.</p>
+    <div id="placehere" style="width:50%; height:50%; margin-left:25%; position: relative;"></div>
+
+    <button id="movingButton" onmouseover="moveBenda()" onmousedown="moveBenda()">Download Certificate</button>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/benda.js"></script>
+    <script>
+        function playSound() {
+            var audio = new Audio("./sounds/bendaBomb.mp3") 
+            audio.play();
+        }
+        var images = [
+            'img1.png',
+            'img2.png',
+            'img3.png',
+            'img4.png',
+            'img5.png',
+            'img6.png',
+            'img7.png',
+            'img8.png',
+            'img9.png',
+            'img10.png',
+            'img11.png',
+            'img12.png',
+            'img13.png',
+            'img14.png'
+        ]
+
+
+
+        var image = images[Math.floor(Math.random()*images.length)];
+        var elem = document.createElement("img");
+        elem.src = "alec_photos/" + image;
+        elem.setAttribute("width", "100%");
+        document.getElementById("placehere").appendChild(elem);
+        document.addEventListener("click", function() {
+            playSound();
+            setInterval(playSound, 5000);
+        });
+    </script>
+</body>
+</html>
