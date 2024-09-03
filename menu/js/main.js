@@ -1,8 +1,4 @@
-// Caching menu data every 2 hours to minimize api calls on new sheetdb.io api
 const apiEndpoint = 'https://script.google.com/macros/s/AKfycbxbZQAJ1jFvglj41Gn2r8I-CpENnJ3d3mf9RqxNFalf_I293gWHU9KpofWpY2xeyXGivQ/exec'
-const cacheKey = 'menuData';
-const cacheTimeKey = 'menuDataTime';
-const cacheDuration = 2*60*60*1000; // 2 hours
 
 // Sets a cookie with name and value for optionally given duration of minutes
 function setCookie(name,value,minutes) {
@@ -113,31 +109,19 @@ function loadDataCookies() {
 // This sheet is linked to https://docs.google.com/spreadsheets/d/1pGGsYz5Y6Hn18nqH6HfYSzWz1FjoNVrHBsMFVNDRlpI/edit#gid=0
 // which is accessible to the sigep dev gmail account (message Eran for details)
 function fetchFunc() {
-    const cachedData = localStorage.getItem(cacheKey);
-    const cachedTime = Number(localStorage.getItem(cacheTimeKey));
-    const now = new Date().getTime();
-
-    if (cachedData && cachedTime && (now - cachedTime < cacheDuration)) {
-        // Use cached data
-        successFunc(JSON.parse(cachedData));
-    } else {
-        // Fetch and cache new data
-        fetch(apiEndpoint)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                localStorage.setItem(cacheKey, JSON.stringify(data));
-                localStorage.setItem(cacheTimeKey, now.toString());
-                successFunc(data);
-            })
-            .catch(error => {
-                console.error('Fetch error:', error);
-            });
-    }
+    fetch(apiEndpoint)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            successFunc(data);
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
+        });
 }
 
 // Code ran on load
