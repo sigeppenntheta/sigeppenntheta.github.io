@@ -1,5 +1,5 @@
 // Caching menu data every 2 hours to minimize api calls on new sheetdb.io api
-const apiEndpoint = "https://sheetdb.io/api/v1/k1d0iu0grxpcd";
+const apiEndpoint = 'https://script.google.com/macros/s/AKfycbxbZQAJ1jFvglj41Gn2r8I-CpENnJ3d3mf9RqxNFalf_I293gWHU9KpofWpY2xeyXGivQ/exec'
 const cacheKey = 'menuData';
 const cacheTimeKey = 'menuDataTime';
 const cacheDuration = 2*60*60*1000; // 2 hours
