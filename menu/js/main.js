@@ -107,7 +107,7 @@ function loadDataCookies() {
 // This sheet is linked to https://docs.google.com/spreadsheets/d/1pGGsYz5Y6Hn18nqH6HfYSzWz1FjoNVrHBsMFVNDRlpI/edit#gid=0
 // which is accessible to the sigep dev gmail account (message Eran for details)
 function fetchFunc() {
-    fetch("https://sheetsu.com/apis/v1.0bu/6c89e9406c1f")
+    fetch("https://sheetdb.io/api/v1/k1d0iu0grxpcd")
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
