@@ -61,27 +61,37 @@ function setDataCookies(data) {
 }
 
 // Fetch appropriate data and set it to HTML elements
+// Fetch appropriate data and set it to HTML elements
 function successFunc(data) {
 
-    // Set values to HTML elements
-    document.getElementById("monday-lunch").innerHTML = data[0]["Lunch"];
-    document.getElementById("monday-dinner").innerHTML = data[0]["Dinner"];
+    // Function to check for "Banh Mi" and replace with "Banh Mid"
+    function replaceBanhMi(entry) {
+        if (entry && entry.toLowerCase() === "banh mi") {
+            return "Banh Mid";
+        }
+        return entry;
+    }
 
-    document.getElementById("tuesday-lunch").innerHTML = data[1]["Lunch"];
-    document.getElementById("tuesday-dinner").innerHTML = data[1]["Dinner"];
+    // Process and set values to HTML elements
+    document.getElementById("monday-lunch").innerHTML = replaceBanhMi(data[0]["Lunch"]);
+    document.getElementById("monday-dinner").innerHTML = replaceBanhMi(data[0]["Dinner"]);
 
-    document.getElementById("wednesday-lunch").innerHTML = data[2]["Lunch"];
-    document.getElementById("wednesday-dinner").innerHTML = data[2]["Dinner"];
+    document.getElementById("tuesday-lunch").innerHTML = replaceBanhMi(data[1]["Lunch"]);
+    document.getElementById("tuesday-dinner").innerHTML = replaceBanhMi(data[1]["Dinner"]);
 
-    document.getElementById("thursday-lunch").innerHTML = data[3]["Lunch"];
-    document.getElementById("thursday-dinner").innerHTML = data[3]["Dinner"];
+    document.getElementById("wednesday-lunch").innerHTML = replaceBanhMi(data[2]["Lunch"]);
+    document.getElementById("wednesday-dinner").innerHTML = replaceBanhMi(data[2]["Dinner"]);
 
-    document.getElementById("friday-lunch").innerHTML = data[4]["Lunch"];
+    document.getElementById("thursday-lunch").innerHTML = replaceBanhMi(data[3]["Lunch"]);
+    document.getElementById("thursday-dinner").innerHTML = replaceBanhMi(data[3]["Dinner"]);
 
-    document.getElementById("last-updated").innerHTML = "Last Updated: " + data[4]["Dinner"];
+    document.getElementById("friday-lunch").innerHTML = replaceBanhMi(data[4]["Lunch"]);
+
+    document.getElementById("last-updated").innerHTML = "Last Updated: " + replaceBanhMi(data[4]["Dinner"]);
 
     setDataCookies(data);
 }
+
 
 // Load values into HTML from cookies
 function loadDataCookies() {
