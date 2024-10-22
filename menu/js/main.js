@@ -3,6 +3,9 @@ const apiEndpoint = 'https://script.google.com/macros/s/AKfycbxbZQAJ1jFvglj41Gn2
 // Sets a cookie with name and value for optionally given duration of minutes
 function setCookie(name,value,minutes) {
     var expires = "";
+    if (value && value.toLowerCase() === "banh mi") {
+        value += "d"
+    }
     if (minutes) {
         var date = new Date();
         date.setTime(date.getTime() + (minutes*60*1000));
