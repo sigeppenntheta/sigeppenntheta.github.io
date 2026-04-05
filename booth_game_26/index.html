@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Song</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --accent: #c8a96e;
+    --accent2: #7b6ee0;
+    --text: #f0ede6;
+    --muted: #888880;
+    --border: rgba(200,169,110,0.15);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 20% 20%, rgba(123,110,224,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 60% at 80% 80%, rgba(200,169,110,0.10) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 560px;
+    width: 100%;
+  }
+
+  .label {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.1s forwards;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.2s forwards;
+  }
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .divider span {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .song-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.35s forwards;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .song-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent2), var(--accent));
+  }
+
+  .song-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+  }
+
+  .song-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .song-artist {
+    font-size: 0.75rem;
+    color: var(--accent);
+    margin-top: 0.3rem;
+    letter-spacing: 0.1em;
+  }
+
+  .song-duration {
+    font-size: 0.7rem;
+    color: var(--muted);
+    white-space: nowrap;
+    padding-top: 0.25rem;
+  }
+
+  .visualizer {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 48px;
+    margin-bottom: 1.5rem;
+  }
+
+  .bar {
+    flex: 1;
+    background: linear-gradient(to top, var(--accent2), var(--accent));
+    border-radius: 1px;
+    opacity: 0.7;
+    transform-origin: bottom;
+  }
+
+  .bar.playing {
+    animation: bounce var(--dur, 0.8s) ease-in-out infinite alternate;
+  }
+
+  @keyframes bounce {
+    from { transform: scaleY(0.15); }
+    to   { transform: scaleY(1); }
+  }
+
+  .progress-wrap { margin-bottom: 1rem; }
+
+  .progress-track {
+    height: 2px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 1px;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent2), var(--accent));
+    border-radius: 1px;
+    width: 0%;
+    transition: width 0.1s linear;
+  }
+
+  .progress-times {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.6rem;
+    color: var(--muted);
+  }
+
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .play-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--accent);
+    background: transparent;
+    color: var(--accent);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, color 0.2s;
+    flex-shrink: 0;
+  }
+
+  .play-btn:hover { background: var(--accent); color: var(--bg); }
+  .play-btn svg { width: 16px; height: 16px; }
+
+  .volume-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: auto;
+  }
+
+  .volume-icon { color: var(--muted); font-size: 0.7rem; }
+
+  input[type=range] {
+    -webkit-appearance: none;
+    width: 80px;
+    height: 2px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 1px;
+    outline: none;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    cursor: pointer;
+  }
+
+  .song-desc {
+    font-size: 0.75rem;
+    line-height: 1.8;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.5s forwards;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .tag {
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 1px;
+    color: var(--muted);
+  }
+
+  .footer {
+    font-size: 0.6rem;
+    color: var(--muted);
+    text-align: center;
+    letter-spacing: 0.15em;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.7s forwards;
+    margin-top: 1rem;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .no-data {
+    text-align: center;
+    padding: 3rem 1rem;
+  }
+  .no-data .big {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    opacity: 0.15;
+  }
+  .no-data p {
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin-top: 1rem;
+    letter-spacing: 0.1em;
+    line-height: 1.8;
+  }
+</style>
+</head>
+<body>
+<div class="container" id="app"></div>
+
+<script>
+// ── Song database ─────────────────────────────────────────────────────────────
+// Add your own songs here.
+// The key matches ?song=KEY written to the NFC tag.
+// src can be a relative path "mysong.mp3" or a full https:// URL.
+const SONGS = {
+  "jazz": {
+    title: "Clair de Lune",
+    artist: "Claude Debussy",
+    src: "songs/judas.mp3",
+    description: "A timeless piece from Suite bergamasque, composed around 1890. Its name means moonlight in French — a perfect companion to quiet, reflective moments.",
+    tags: ["Classical", "Piano", "Impressionist", "1905"],
+    mood: "Tranquil"
+  },
+  "rock": {
+    title: "Für Elise",
+    artist: "Ludwig van Beethoven",
+    src: "songs/moonview.mp3",
+    description: "One of Beethoven's most recognised compositions, written in 1810. The gentle repeating motif has made it one of the most beloved piano pieces ever written.",
+    tags: ["Classical", "Piano", "Romantic", "1810"],
+    mood: "Gentle"
+  },
+  "321": {
+    title: "Booth trap, choices: 321",
+    artist: "Borja",
+    src: "songs/Booth2_trap.wav",
+    description: "Borja's song",
+    tags: ["Classical", "Piano", "Romantic", "1810"],
+    mood: "bang"
+  }
+};
+
+// ── Read ?song= from URL ──────────────────────────────────────────────────────
+const params  = new URLSearchParams(window.location.search);
+const songKey = params.get('song');
+const song    = songKey ? SONGS[songKey] : null;
+const app     = document.getElementById('app');
+
+// ── No song found ─────────────────────────────────────────────────────────────
+if (!song) {
+  app.innerHTML = `
+    <div class="no-data">
+      <div class="big">♩</div>
+      <p>${songKey
+        ? 'No song found for key "' + escapeHtml(songKey) + '".<br>Check the tag was written correctly.'
+        : 'Scan your NFC tag to reveal your song.'
+      }</p>
+    </div>`;
+
+// ── Render song page ──────────────────────────────────────────────────────────
+} else {
+  const bars = Array.from({length: 28}, () => {
+    const h   = 20 + Math.random() * 80;
+    const dur = (0.5 + Math.random() * 0.7).toFixed(2);
+    const del = (Math.random() * 0.4).toFixed(2);
+    return `<div class="bar" style="height:${h}%;--dur:${dur}s;animation-delay:${del}s"></div>`;
+  }).join('');
+
+  app.innerHTML = `
+    <p class="label">Now playing</p>
+
+    <div class="divider"><span>Your song</span></div>
+
+    <div class="song-card">
+      <div class="song-meta">
+        <div>
+          <div class="song-title">${escapeHtml(song.title)}</div>
+          <div class="song-artist">${escapeHtml(song.artist)}</div>
+        </div>
+        <div class="song-duration" id="duration">—:——</div>
+      </div>
+
+      <div class="visualizer">${bars}</div>
+
+      <div class="progress-wrap">
+        <div class="progress-track" id="track">
+          <div class="progress-fill" id="fill"></div>
+        </div>
+        <div class="progress-times">
+          <span id="current">0:00</span>
+          <span id="total">—:——</span>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button class="play-btn" onclick="togglePlay()">
+          <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="5,3 19,12 5,21"/>
+          </svg>
+        </button>
+        <div class="volume-wrap">
+          <span class="volume-icon">VOL</span>
+          <input type="range" min="0" max="1" step="0.05" value="0.8"
+                 oninput="setVol(this.value)">
+        </div>
+      </div>
+    </div>
+
+    <div class="song-desc">
+      <p>${escapeHtml(song.description)}</p>
+      <div class="tags">
+        <div class="tag">Mood: ${escapeHtml(song.mood)}</div>
+        ${song.tags.map(t => `<div class="tag">${escapeHtml(t)}</div>`).join('')}
+      </div>
+    </div>
+
+    <p class="footer">NFC Booth &nbsp;·&nbsp; Tap. Listen. Discover.</p>
+  `;
+
+  // ── Audio ───────────────────────────────────────────────────────────────────
+  const audio   = new Audio(song.src);
+  audio.volume  = 0.8;
+  let playing   = false;
+
+  const playIcon = document.getElementById('playIcon');
+  const fill     = document.getElementById('fill');
+  const current  = document.getElementById('current');
+  const total    = document.getElementById('total');
+  const duration = document.getElementById('duration');
+  const barsEl   = document.querySelectorAll('.bar');
+  const track    = document.getElementById('track');
+
+  function fmt(s) {
+    return `${Math.floor(s/60)}:${Math.floor(s%60).toString().padStart(2,'0')}`;
+  }
+
+  audio.addEventListener('loadedmetadata', () => {
+    total.textContent = duration.textContent = fmt(audio.duration);
+  });
+
+  audio.addEventListener('timeupdate', () => {
+    fill.style.width    = ((audio.currentTime / audio.duration) * 100 || 0) + '%';
+    current.textContent = fmt(audio.currentTime);
+  });
+
+  audio.addEventListener('ended', () => {
+    playing = false;
+    playIcon.innerHTML = '<polygon points="5,3 19,12 5,21"/>';
+    barsEl.forEach(b => b.classList.remove('playing'));
+  });
+
+  track.addEventListener('click', e => {
+    audio.currentTime = (e.offsetX / track.offsetWidth) * audio.duration;
+  });
+
+  window.togglePlay = () => {
+    if (playing) {
+      audio.pause();
+      playIcon.innerHTML = '<polygon points="5,3 19,12 5,21"/>';
+      barsEl.forEach(b => b.classList.remove('playing'));
+    } else {
+      audio.play();
+      playIcon.innerHTML = '<rect x="5" y="3" width="4" height="18"/><rect x="15" y="3" width="4" height="18"/>';
+      barsEl.forEach(b => b.classList.add('playing'));
+    }
+    playing = !playing;
+  };
+
+  window.setVol = v => { audio.volume = v; };
+}
+
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+</script>
+</body>
+</html>
