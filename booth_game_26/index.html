@@ -133,25 +133,18 @@
     display: flex;
     align-items: flex-end;
     gap: 3px;
-    height: 48px;
+    height: 120px;        /* was 48px */
     margin-bottom: 1.5rem;
   }
 
   .bar {
     flex: 1;
+    height: 100%;
     background: linear-gradient(to top, var(--accent2), var(--accent));
     border-radius: 1px;
     opacity: 0.7;
     transform-origin: bottom;
-  }
-
-  .bar.playing {
-    animation: bounce var(--dur, 0.8s) ease-in-out infinite alternate;
-  }
-
-  @keyframes bounce {
-    from { transform: scaleY(0.15); }
-    to   { transform: scaleY(1); }
+    transition: transform 0.05s ease;
   }
 
   .progress-wrap { margin-bottom: 1rem; }
@@ -295,34 +288,200 @@
 
 <script>
 // ── Song database ─────────────────────────────────────────────────────────────
-// Add your own songs here.
-// The key matches ?song=KEY written to the NFC tag.
-// src can be a relative path "mysong.mp3" or a full https:// URL.
 const SONGS = {
-  "jazz": {
-    title: "Clair de Lune",
-    artist: "Claude Debussy",
-    src: "songs/judas.mp3",
-    description: "A timeless piece from Suite bergamasque, composed around 1890. Its name means moonlight in French — a perfect companion to quiet, reflective moments.",
-    tags: ["Classical", "Piano", "Impressionist", "1905"],
-    mood: "Tranquil"
-  },
-  "rock": {
-    title: "Für Elise",
-    artist: "Ludwig van Beethoven",
-    src: "songs/moonview.mp3",
-    description: "One of Beethoven's most recognised compositions, written in 1810. The gentle repeating motif has made it one of the most beloved piano pieces ever written.",
-    tags: ["Classical", "Piano", "Romantic", "1810"],
-    mood: "Gentle"
-  },
-  "321": {
-    title: "Booth trap, choices: 321",
-    artist: "Borja",
-    src: "songs/Booth2_trap.wav",
-    description: "Borja's song",
-    tags: ["Classical", "Piano", "Romantic", "1810"],
-    mood: "bang"
-  }
+  "0-0-0-0-5": {"title": "GIB", "artist": "Sigep Studios", src: "songs/0-0-0-0-5.wav"},
+"1-1-1-1-1": {"title": "Doll Haus Rats", "artist": "Sigep Studios", src: "songs/1-1-1-1-1.wav"},
+"1-1-1-1-2": {"title": "Dawg Haus Roof Chilling", "artist": "Sigep Studios", src: "songs/1-1-1-1-2.wav"},
+"1-1-1-1-3": {"title": "Doll Haus Mixtape", "artist": "Sigep Studios", src: "songs/1-1-1-1-3.wav"},
+"1-1-1-1-4": {"title": "The Palace", "artist": "Sigep Studios", src: "songs/1-1-1-1-4.wav"},
+"1-1-1-2-1": {"title": "Palace Brunch Anthem", "artist": "Sigep Studios", src: "songs/1-1-1-2-1.wav"},
+"1-1-1-2-2": {"title": "Sigmafest", "artist": "Sigep Studios", src: "songs/1-1-1-2-2.wav"},
+"1-1-1-2-3": {"title": "B6 Basement", "artist": "Sigep Studios", src: "songs/1-1-1-2-3.wav"},
+"1-1-1-2-4": {"title": "Bullet Bill Ballroom Step", "artist": "Sigep Studios", src: "songs/1-1-1-2-4.wav"},
+"1-1-1-3-1": {"title": "Yo Yo Ma", "artist": "Sigep Studios", src: "songs/1-1-1-3-1.wav"},
+"1-1-1-3-2": {"title": "Shomik", "artist": "Sigep Studios", src: "songs/1-1-1-3-2.wav"},
+"1-1-1-3-3": {"title": "Moonview Highway", "artist": "Sigep Studios", src: "songs/1-1-1-3-3.wav"},
+"1-1-1-3-4": {"title": "Epp Chud", "artist": "Sigep Studios", src: "songs/1-1-1-3-4.wav"},
+"1-1-2-1-1": {"title": "Suspendabomb", "artist": "Sigep Studios", src: "songs/1-1-2-1-1.wav"},
+"1-1-2-1-2": {"title": "Thaboom", "artist": "Sigep Studios", src: "songs/1-1-2-1-2.wav"},
+"1-1-2-1-3": {"title": "Eiffel Huas", "artist": "Sigep Studios", src: "songs/1-1-2-1-3.wav"},
+"1-1-2-1-4": {"title": "Hbc (Head Booth Chair)", "artist": "Sigep Studios", src: "songs/1-1-2-1-4.wav"},
+"1-1-2-2-1": {"title": "Chiddy Bang Bang Chiddy Chiddy Bang Bang", "artist": "Sigep Studios", src: "songs/1-1-2-2-1.wav"},
+"1-1-2-2-2": {"title": "Masterful Matthies", "artist": "Sigep Studios", src: "songs/1-1-2-2-2.wav"},
+"1-1-2-2-3": {"title": "Limbotech", "artist": "Sigep Studios", src: "songs/1-1-2-2-3.wav"},
+"1-1-2-2-4": {"title": "Waluigi", "artist": "Sigep Studios", src: "songs/1-1-2-2-4.wav"},
+"1-1-2-3-1": {"title": "Benda Bomb Blast", "artist": "Sigep Studios", src: "songs/1-1-2-3-1.wav"},
+"1-1-2-3-2": {"title": "Gluten Free Anthem", "artist": "Sigep Studios", src: "songs/1-1-2-3-2.wav"},
+"1-1-2-3-3": {"title": "Ghost Brother", "artist": "Sigep Studios", src: "songs/1-1-2-3-3.wav"},
+"1-1-2-3-4": {"title": "Benda Bomb", "artist": "Sigep Studios", src: "songs/1-1-2-3-4.wav"},
+"1-1-3-1-1": {"title": "Touse", "artist": "Sigep Studios", src: "songs/1-1-3-1-1.wav"},
+"1-1-3-1-2": {"title": "Better Brother (L)", "artist": "Sigep Studios", src: "songs/1-1-3-1-2.wav"},
+"1-1-3-1-3": {"title": "Jackson Bryant & Man I Love Fish", "artist": "Sigep Studios", src: "songs/1-1-3-1-3.wav"},
+"1-1-3-1-4": {"title": "Ballad Of Benda Bomb", "artist": "Sigep Studios", src: "songs/1-1-3-1-4.wav"},
+"1-1-3-2-1": {"title": "Killer Kelley", "artist": "Sigep Studios", src: "songs/1-1-3-2-1.wav"},
+"1-1-3-2-2": {"title": "Molly's World", "artist": "Sigep Studios", src: "songs/1-1-3-2-2.wav"},
+"1-1-3-2-3": {"title": "Noti", "artist": "Sigep Studios", src: "songs/1-1-3-2-3.wav"},
+"1-1-3-2-4": {"title": "Bov", "artist": "Sigep Studios", src: "songs/1-1-3-2-4.wav"},
+"1-1-3-3-1": {"title": "Vor", "artist": "Sigep Studios", src: "songs/1-1-3-3-1.wav"},
+"1-1-3-3-2": {"title": "Suspendachud", "artist": "Sigep Studios", src: "songs/1-1-3-3-2.wav"},
+"1-1-3-3-3": {"title": "Telangalang", "artist": "Sigep Studios", src: "songs/1-1-3-3-3.wav"},
+"1-1-3-3-4": {"title": "Can't Burp (Chris)", "artist": "Sigep Studios", src: "songs/1-1-3-3-4.wav"},
+"1-1-4-1-1": {"title": "Raj's Flowers", "artist": "Sigep Studios", src: "songs/1-1-4-1-1.wav"},
+"1-1-4-1-2": {"title": "Tilden's Cello Solo", "artist": "Sigep Studios", src: "songs/1-1-4-1-2.wav"},
+"1-1-4-1-3": {"title": "Tpt", "artist": "Sigep Studios", src: "songs/1-1-4-1-3.wav"},
+"1-1-4-1-4": {"title": "Muffy's March", "artist": "Sigep Studios", src: "songs/1-1-4-1-4.wav"},
+"1-1-4-2-1": {"title": "Broski", "artist": "Sigep Studios", src: "songs/1-1-4-2-1.wav"},
+"1-1-4-2-2": {"title": "Broski 2", "artist": "Sigep Studios", src: "songs/1-1-4-2-2.wav"},
+"1-1-4-2-3": {"title": "Shock Dodge", "artist": "Sigep Studios", src: "songs/1-1-4-2-3.wav"},
+"1-1-4-2-4": {"title": "Egging", "artist": "Sigep Studios", src: "songs/1-1-4-2-4.wav"},
+"1-1-4-3-1": {"title": "Buggin", "artist": "Sigep Studios", src: "songs/1-1-4-3-1.wav"},
+"1-1-4-3-2": {"title": "Meal Plan Trippin", "artist": "Sigep Studios", src: "songs/1-1-4-3-2.wav"},
+"1-1-4-3-3": {"title": "Yo Yo Poppa", "artist": "Sigep Studios", src: "songs/1-1-4-3-3.wav"},
+"1-1-4-3-4": {"title": "Shomik", "artist": "Sigep Studios", src: "songs/1-1-4-3-4.wav"},
+"1-2-1-1-1": {"title": "Shomik I", "artist": "Sigep Studios", src: "songs/1-2-1-1-1.wav"},
+"1-2-1-1-2": {"title": "Somick Ii", "artist": "Sigep Studios", src: "songs/1-2-1-1-2.wav"},
+"1-2-1-1-3": {"title": "Shomik The Iiird", "artist": "Sigep Studios", src: "songs/1-2-1-1-3.wav"},
+"1-2-1-1-4": {"title": "Brady's Children", "artist": "Sigep Studios", src: "songs/1-2-1-1-4.wav"},
+"1-2-1-2-1": {"title": "I Survived Doll House", "artist": "Sigep Studios", src: "songs/1-2-1-2-1.wav"},
+"1-2-1-2-2": {"title": "Brant's Left Shoe", "artist": "Sigep Studios", src: "songs/1-2-1-2-2.wav"},
+"1-2-1-2-3": {"title": "Hindi's World", "artist": "Sigep Studios", src: "songs/1-2-1-2-3.wav"},
+"1-2-1-2-4": {"title": "Sls Logan", "artist": "Sigep Studios", src: "songs/1-2-1-2-4.wav"},
+"1-2-1-3-1": {"title": "Chris P. Himself Part 1", "artist": "Sigep Studios", src: "songs/1-2-1-3-1.wav"},
+"1-2-1-3-2": {"title": "Chris P. Himself Part 2", "artist": "Sigep Studios", src: "songs/1-2-1-3-2.wav"},
+"1-2-1-3-3": {"title": "Farnam Fernando", "artist": "Sigep Studios", src: "songs/1-2-1-3-3.wav"},
+"1-2-1-3-4": {"title": "Texas Pete", "artist": "Sigep Studios", src: "songs/1-2-1-3-4.wav"},
+"1-2-2-1-1": {"title": "Jaharvius Shah", "artist": "Sigep Studios", src: "songs/1-2-2-1-1.wav"},
+"1-2-2-1-2": {"title": "Max Milius", "artist": "Sigep Studios", src: "songs/1-2-2-1-2.wav"},
+"1-2-2-1-3": {"title": "Ben Dover", "artist": "Sigep Studios", src: "songs/1-2-2-1-3.wav"},
+"1-2-2-1-4": {"title": "Enormous Edelio", "artist": "Sigep Studios", src: "songs/1-2-2-1-4.wav"},
+"1-2-2-2-1": {"title": "Baracuda", "artist": "Sigep Studios", src: "songs/1-2-2-2-1.wav"},
+"1-2-2-2-2": {"title": "Cuda", "artist": "Sigep Studios", src: "songs/1-2-2-2-2.wav"},
+"1-2-2-2-3": {"title": "Hydra", "artist": "Sigep Studios", src: "songs/1-2-2-2-3.wav"},
+"1-2-2-2-4": {"title": "Beyonce", "artist": "Sigep Studios", src: "songs/1-2-2-2-4.wav"},
+"1-2-2-3-1": {"title": "GIB", "artist": "Sigep Studios", src: "songs/1-2-2-3-1.wav"},
+"1-2-2-3-2": {"title": "Doll Haus Rats", "artist": "Sigep Studios", src: "songs/1-2-2-3-2.wav"},
+"1-2-2-3-3": {"title": "Dawg Haus Roof Chilling", "artist": "Sigep Studios", src: "songs/1-2-2-3-3.wav"},
+"1-2-2-3-4": {"title": "Doll Haus Mixtape", "artist": "Sigep Studios", src: "songs/1-2-2-3-4.wav"},
+"1-2-3-1-1": {"title": "The Palace", "artist": "Sigep Studios", src: "songs/1-2-3-1-1.wav"},
+"1-2-3-1-2": {"title": "Palace Brunch Anthem", "artist": "Sigep Studios", src: "songs/1-2-3-1-2.wav"},
+"1-2-3-1-3": {"title": "Sigmafest", "artist": "Sigep Studios", src: "songs/1-2-3-1-3.wav"},
+"1-2-3-1-4": {"title": "B6 Basement", "artist": "Sigep Studios", src: "songs/1-2-3-1-4.wav"},
+"1-2-3-2-1": {"title": "Bullet Bill Ballroom Step", "artist": "Sigep Studios", src: "songs/1-2-3-2-1.wav"},
+"1-2-3-2-2": {"title": "Yo Yo Ma", "artist": "Sigep Studios", src: "songs/1-2-3-2-2.wav"},
+"1-2-3-2-3": {"title": "Shomik", "artist": "Sigep Studios", src: "songs/1-2-3-2-3.wav"},
+"1-2-3-2-4": {"title": "Moonview Highway", "artist": "Sigep Studios", src: "songs/1-2-3-2-4.wav"},
+"1-2-3-3-1": {"title": "Epp Chud", "artist": "Sigep Studios", src: "songs/1-2-3-3-1.wav"},
+"1-2-3-3-2": {"title": "Suspendabomb", "artist": "Sigep Studios", src: "songs/1-2-3-3-2.wav"},
+"1-2-3-3-3": {"title": "Thaboom", "artist": "Sigep Studios", src: "songs/1-2-3-3-3.wav"},
+"1-2-3-3-4": {"title": "Eiffel Huas", "artist": "Sigep Studios", src: "songs/1-2-3-3-4.wav"},
+"1-2-4-1-1": {"title": "Hbc (Head Booth Chair)", "artist": "Sigep Studios", src: "songs/1-2-4-1-1.wav"},
+"1-2-4-1-2": {"title": "Chiddy Bang Bang Chiddy Chiddy Bang Bang", "artist": "Sigep Studios", src: "songs/1-2-4-1-2.wav"},
+"1-2-4-1-3": {"title": "Masterful Matthies", "artist": "Sigep Studios", src: "songs/1-2-4-1-3.wav"},
+"1-2-4-1-4": {"title": "Limbotech", "artist": "Sigep Studios", src: "songs/1-2-4-1-4.wav"},
+"1-2-4-2-1": {"title": "Waluigi", "artist": "Sigep Studios", src: "songs/1-2-4-2-1.wav"},
+"1-2-4-2-2": {"title": "Benda Bomb Blast", "artist": "Sigep Studios", src: "songs/1-2-4-2-2.wav"},
+"1-2-4-2-3": {"title": "Gluten Free Anthem", "artist": "Sigep Studios", src: "songs/1-2-4-2-3.wav"},
+"1-2-4-2-4": {"title": "Ghost Brother", "artist": "Sigep Studios", src: "songs/1-2-4-2-4.wav"},
+"1-2-4-3-1": {"title": "Benda Bomb", "artist": "Sigep Studios", src: "songs/1-2-4-3-1.wav"},
+"1-2-4-3-2": {"title": "Touse", "artist": "Sigep Studios", src: "songs/1-2-4-3-2.wav"},
+"1-2-4-3-3": {"title": "Better Brother (L)", "artist": "Sigep Studios", src: "songs/1-2-4-3-3.wav"},
+"1-2-4-3-4": {"title": "Jackson Bryant & Man I Love Fish", "artist": "Sigep Studios", src: "songs/1-2-4-3-4.wav"},
+"2-1-1-1-1": {"title": "Ballad Of Benda Bomb", "artist": "Sigep Studios", src: "songs/2-1-1-1-1.wav"},
+"2-1-1-1-2": {"title": "Killer Kelley", "artist": "Sigep Studios", src: "songs/2-1-1-1-2.wav"},
+"2-1-1-1-3": {"title": "Molly's World", "artist": "Sigep Studios", src: "songs/2-1-1-1-3.wav"},
+"2-1-1-1-4": {"title": "Noti", "artist": "Sigep Studios", src: "songs/2-1-1-1-4.wav"},
+"2-1-1-2-1": {"title": "Bov", "artist": "Sigep Studios", src: "songs/2-1-1-2-1.wav"},
+"2-1-1-2-2": {"title": "Vor", "artist": "Sigep Studios", src: "songs/2-1-1-2-2.wav"},
+"2-1-1-2-3": {"title": "Suspendachud", "artist": "Sigep Studios", src: "songs/2-1-1-2-3.wav"},
+"2-1-1-2-4": {"title": "Telangalang", "artist": "Sigep Studios", src: "songs/2-1-1-2-4.wav"},
+"2-1-1-3-1": {"title": "Can't Burp (Chris)", "artist": "Sigep Studios", src: "songs/2-1-1-3-1.wav"},
+"2-1-1-3-2": {"title": "Raj's Flowers", "artist": "Sigep Studios", src: "songs/2-1-1-3-2.wav"},
+"2-1-1-3-3": {"title": "Tilden's Cello Solo", "artist": "Sigep Studios", src: "songs/2-1-1-3-3.wav"},
+"2-1-1-3-4": {"title": "Tpt", "artist": "Sigep Studios", src: "songs/2-1-1-3-4.wav"},
+"2-1-2-1-1": {"title": "Muffy's March", "artist": "Sigep Studios", src: "songs/2-1-2-1-1.wav"},
+"2-1-2-1-2": {"title": "Broski", "artist": "Sigep Studios", src: "songs/2-1-2-1-2.wav"},
+"2-1-2-1-3": {"title": "Broski 2", "artist": "Sigep Studios", src: "songs/2-1-2-1-3.wav"},
+"2-1-2-1-4": {"title": "Shock Dodge", "artist": "Sigep Studios", src: "songs/2-1-2-1-4.wav"},
+"2-1-2-2-1": {"title": "Egging", "artist": "Sigep Studios", src: "songs/2-1-2-2-1.wav"},
+"2-1-2-2-2": {"title": "Buggin", "artist": "Sigep Studios", src: "songs/2-1-2-2-2.wav"},
+"2-1-2-2-3": {"title": "Meal Plan Trippin", "artist": "Sigep Studios", src: "songs/2-1-2-2-3.wav"},
+"2-1-2-2-4": {"title": "Yo Yo Poppa", "artist": "Sigep Studios", src: "songs/2-1-2-2-4.wav"},
+"2-1-2-3-1": {"title": "Shomik", "artist": "Sigep Studios", src: "songs/2-1-2-3-1.wav"},
+"2-1-2-3-2": {"title": "Shomik I", "artist": "Sigep Studios", src: "songs/2-1-2-3-2.wav"},
+"2-1-2-3-3": {"title": "Somick Ii", "artist": "Sigep Studios", src: "songs/2-1-2-3-3.wav"},
+"2-1-2-3-4": {"title": "Shomik The Iiird", "artist": "Sigep Studios", src: "songs/2-1-2-3-4.wav"},
+"2-1-3-1-1": {"title": "Brady's Children", "artist": "Sigep Studios", src: "songs/2-1-3-1-1.wav"},
+"2-1-3-1-2": {"title": "I Survived Doll House", "artist": "Sigep Studios", src: "songs/2-1-3-1-2.wav"},
+"2-1-3-1-3": {"title": "Brant's Left Shoe", "artist": "Sigep Studios", src: "songs/2-1-3-1-3.wav"},
+"2-1-3-1-4": {"title": "Hindi's World", "artist": "Sigep Studios", src: "songs/2-1-3-1-4.wav"},
+"2-1-3-2-1": {"title": "Sls Logan", "artist": "Sigep Studios", src: "songs/2-1-3-2-1.wav"},
+"2-1-3-2-2": {"title": "Chris P. Himself Part 1", "artist": "Sigep Studios", src: "songs/2-1-3-2-2.wav"},
+"2-1-3-2-3": {"title": "Chris P. Himself Part 2", "artist": "Sigep Studios", src: "songs/2-1-3-2-3.wav"},
+"2-1-3-2-4": {"title": "Farnam Fernando", "artist": "Sigep Studios", src: "songs/2-1-3-2-4.wav"},
+"2-1-3-3-1": {"title": "Texas Pete", "artist": "Sigep Studios", src: "songs/2-1-3-3-1.wav"},
+"2-1-3-3-2": {"title": "Jaharvius Shah", "artist": "Sigep Studios", src: "songs/2-1-3-3-2.wav"},
+"2-1-3-3-3": {"title": "Max Milius", "artist": "Sigep Studios", src: "songs/2-1-3-3-3.wav"},
+"2-1-3-3-4": {"title": "Ben Dover", "artist": "Sigep Studios", src: "songs/2-1-3-3-4.wav"},
+"2-1-4-1-1": {"title": "Enormous Edelio", "artist": "Sigep Studios", src: "songs/2-1-4-1-1.wav"},
+"2-1-4-1-2": {"title": "Baracuda", "artist": "Sigep Studios", src: "songs/2-1-4-1-2.wav"},
+"2-1-4-1-3": {"title": "Cuda", "artist": "Sigep Studios", src: "songs/2-1-4-1-3.wav"},
+"2-1-4-1-4": {"title": "Hydra", "artist": "Sigep Studios", src: "songs/2-1-4-1-4.wav"},
+"2-1-4-2-1": {"title": "Beyonce", "artist": "Sigep Studios", src: "songs/2-1-4-2-1.wav"},
+"2-1-4-2-2": {"title": "GIB", "artist": "Sigep Studios", src: "songs/2-1-4-2-2.wav"},
+"2-1-4-2-3": {"title": "Doll Haus Rats", "artist": "Sigep Studios", src: "songs/2-1-4-2-3.wav"},
+"2-1-4-2-4": {"title": "Dawg Haus Roof Chilling", "artist": "Sigep Studios", src: "songs/2-1-4-2-4.wav"},
+"2-1-4-3-1": {"title": "Doll Haus Mixtape", "artist": "Sigep Studios", src: "songs/2-1-4-3-1.wav"},
+"2-1-4-3-2": {"title": "The Palace", "artist": "Sigep Studios", src: "songs/2-1-4-3-2.wav"},
+"2-1-4-3-3": {"title": "Palace Brunch Anthem", "artist": "Sigep Studios", src: "songs/2-1-4-3-3.wav"},
+"2-1-4-3-4": {"title": "Sigmafest", "artist": "Sigep Studios", src: "songs/2-1-4-3-4.wav"},
+"2-2-1-1-1": {"title": "B6 Basement", "artist": "Sigep Studios", src: "songs/2-2-1-1-1.wav"},
+"2-2-1-1-2": {"title": "Bullet Bill Ballroom Step", "artist": "Sigep Studios", src: "songs/2-2-1-1-2.wav"},
+"2-2-1-1-3": {"title": "Yo Yo Ma", "artist": "Sigep Studios", src: "songs/2-2-1-1-3.wav"},
+"2-2-1-1-4": {"title": "Shomik", "artist": "Sigep Studios", src: "songs/2-2-1-1-4.wav"},
+"2-2-1-2-1": {"title": "Moonview Highway", "artist": "Sigep Studios", src: "songs/2-2-1-2-1.wav"},
+"2-2-1-2-2": {"title": "Epp Chud", "artist": "Sigep Studios", src: "songs/2-2-1-2-2.wav"},
+"2-2-1-2-3": {"title": "Suspendabomb", "artist": "Sigep Studios", src: "songs/2-2-1-2-3.wav"},
+"2-2-1-2-4": {"title": "Thaboom", "artist": "Sigep Studios", src: "songs/2-2-1-2-4.wav"},
+"2-2-1-3-1": {"title": "Eiffel Huas", "artist": "Sigep Studios", src: "songs/2-2-1-3-1.wav"},
+"2-2-1-3-2": {"title": "Hbc (Head Booth Chair)", "artist": "Sigep Studios", src: "songs/2-2-1-3-2.wav"},
+"2-2-1-3-3": {"title": "Chiddy Bang Bang Chiddy Chiddy Bang Bang", "artist": "Sigep Studios", src: "songs/2-2-1-3-3.wav"},
+"2-2-1-3-4": {"title": "Masterful Matthies", "artist": "Sigep Studios", src: "songs/2-2-1-3-4.wav"},
+"2-2-2-1-1": {"title": "Limbotech", "artist": "Sigep Studios", src: "songs/2-2-2-1-1.wav"},
+"2-2-2-1-2": {"title": "Waluigi", "artist": "Sigep Studios", src: "songs/2-2-2-1-2.wav"},
+"2-2-2-1-3": {"title": "Benda Bomb Blast", "artist": "Sigep Studios", src: "songs/2-2-2-1-3.wav"},
+"2-2-2-1-4": {"title": "Gluten Free Anthem", "artist": "Sigep Studios", src: "songs/2-2-2-1-4.wav"},
+"2-2-2-2-1": {"title": "Ghost Brother", "artist": "Sigep Studios", src: "songs/2-2-2-2-1.wav"},
+"2-2-2-2-2": {"title": "Benda Bomb", "artist": "Sigep Studios", src: "songs/2-2-2-2-2.wav"},
+"2-2-2-2-3": {"title": "Touse", "artist": "Sigep Studios", src: "songs/2-2-2-2-3.wav"},
+"2-2-2-2-4": {"title": "Better Brother (L)", "artist": "Sigep Studios", src: "songs/2-2-2-2-4.wav"},
+"2-2-2-3-1": {"title": "Jackson Bryant & Man I Love Fish", "artist": "Sigep Studios", src: "songs/2-2-2-3-1.wav"},
+"2-2-2-3-2": {"title": "Ballad Of Benda Bomb", "artist": "Sigep Studios", src: "songs/2-2-2-3-2.wav"},
+"2-2-2-3-3": {"title": "Killer Kelley", "artist": "Sigep Studios", src: "songs/2-2-2-3-3.wav"},
+"2-2-2-3-4": {"title": "Molly's World", "artist": "Sigep Studios", src: "songs/2-2-2-3-4.wav"},
+"2-2-3-1-1": {"title": "Noti", "artist": "Sigep Studios", src: "songs/2-2-3-1-1.wav"},
+"2-2-3-1-2": {"title": "Bov", "artist": "Sigep Studios", src: "songs/2-2-3-1-2.wav"},
+"2-2-3-1-3": {"title": "Vor", "artist": "Sigep Studios", src: "songs/2-2-3-1-3.wav"},
+"2-2-3-1-4": {"title": "Suspendachud", "artist": "Sigep Studios", src: "songs/2-2-3-1-4.wav"},
+"2-2-3-2-1": {"title": "Telangalang", "artist": "Sigep Studios", src: "songs/2-2-3-2-1.wav"},
+"2-2-3-2-2": {"title": "Can't Burp (Chris)", "artist": "Sigep Studios", src: "songs/2-2-3-2-2.wav"},
+"2-2-3-2-3": {"title": "Raj's Flowers", "artist": "Sigep Studios", src: "songs/2-2-3-2-3.wav"},
+"2-2-3-2-4": {"title": "Tilden's Cello Solo", "artist": "Sigep Studios", src: "songs/2-2-3-2-4.wav"},
+"2-2-3-3-1": {"title": "Tpt", "artist": "Sigep Studios", src: "songs/2-2-3-3-1.wav"},
+"2-2-3-3-2": {"title": "Muffy's March", "artist": "Sigep Studios", src: "songs/2-2-3-3-2.wav"},
+"2-2-3-3-3": {"title": "Broski", "artist": "Sigep Studios", src: "songs/2-2-3-3-3.wav"},
+"2-2-3-3-4": {"title": "Broski 2", "artist": "Sigep Studios", src: "songs/2-2-3-3-4.wav"},
+"2-2-4-1-1": {"title": "Shock Dodge", "artist": "Sigep Studios", src: "songs/2-2-4-1-1.wav"},
+"2-2-4-1-2": {"title": "Egging", "artist": "Sigep Studios", src: "songs/2-2-4-1-2.wav"},
+"2-2-4-1-3": {"title": "Buggin", "artist": "Sigep Studios", src: "songs/2-2-4-1-3.wav"},
+"2-2-4-1-4": {"title": "Meal Plan Trippin", "artist": "Sigep Studios", src: "songs/2-2-4-1-4.wav"},
+"2-2-4-2-1": {"title": "Yo Yo Poppa", "artist": "Sigep Studios", src: "songs/2-2-4-2-1.wav"},
+"2-2-4-2-2": {"title": "Shomik", "artist": "Sigep Studios", src: "songs/2-2-4-2-2.wav"},
+"2-2-4-2-3": {"title": "Shomik I", "artist": "Sigep Studios", src: "songs/2-2-4-2-3.wav"},
+"2-2-4-2-4": {"title": "Somick Ii", "artist": "Sigep Studios", src: "songs/2-2-4-2-4.wav"},
+"2-2-4-3-1": {"title": "Shomik The Iiird", "artist": "Sigep Studios", src: "songs/2-2-4-3-1.wav"},
+"2-2-4-3-2": {"title": "Brady's Children", "artist": "Sigep Studios", src: "songs/2-2-4-3-2.wav"},
+"2-2-4-3-3": {"title": "I Survived Doll House", "artist": "Sigep Studios", src: "songs/2-2-4-3-3.wav"},
+"2-2-4-3-4": {"title": "Brant's Left Shoe", "artist": "Sigep Studios", src: "songs/2-2-4-3-4.wav"}
 };
 
 // ── Read ?song= from URL ──────────────────────────────────────────────────────
@@ -344,23 +503,18 @@ if (!song) {
 
 // ── Render song page ──────────────────────────────────────────────────────────
 } else {
-  const bars = Array.from({length: 28}, () => {
-    const h   = 20 + Math.random() * 80;
-    const dur = (0.5 + Math.random() * 0.7).toFixed(2);
-    const del = (Math.random() * 0.4).toFixed(2);
-    return `<div class="bar" style="height:${h}%;--dur:${dur}s;animation-delay:${del}s"></div>`;
+  const bars = Array.from({length: 32}, () => {
+    return `<div class="bar" style="transform:scaleY(0.05)"></div>`;
   }).join('');
 
   app.innerHTML = `
     <p class="label">Now playing</p>
-
     <div class="divider"><span>Your song</span></div>
-
     <div class="song-card">
       <div class="song-meta">
         <div>
           <div class="song-title">${escapeHtml(song.title)}</div>
-          <div class="song-artist">${escapeHtml(song.artist)}</div>
+          <div class="song-artist">${escapeHtml(song.artist || song["second thing"] || "")}</div>
         </div>
         <div class="song-duration" id="duration">—:——</div>
       </div>
@@ -386,37 +540,51 @@ if (!song) {
         <div class="volume-wrap">
           <span class="volume-icon">VOL</span>
           <input type="range" min="0" max="1" step="0.05" value="0.8"
-                 oninput="setVol(this.value)">
+                oninput="setVol(this.value)">
         </div>
       </div>
     </div>
 
-    <div class="song-desc">
-      <p>${escapeHtml(song.description)}</p>
-      <div class="tags">
-        <div class="tag">Mood: ${escapeHtml(song.mood)}</div>
-        ${song.tags.map(t => `<div class="tag">${escapeHtml(t)}</div>`).join('')}
+    ${song.description ? `
+      <div class="song-desc">
+        <p>${escapeHtml(song.description)}</p>
+        <div class="tags">
+          ${song.mood ? `<div class="tag">Mood: ${escapeHtml(song.mood)}</div>` : ''}
+          ${(song.tags || []).map(t => `<div class="tag">${escapeHtml(t)}</div>`).join('')}
+        </div>
       </div>
-    </div>
+    ` : ''}
 
     <p class="footer">NFC Booth &nbsp;·&nbsp; Tap. Listen. Discover.</p>
   `;
 
-  // ── Audio ───────────────────────────────────────────────────────────────────
+  // ── Audio + Web Audio API ────────────────────────────────────────────────────
   const audio   = new Audio(song.src);
   audio.volume  = 0.8;
+  audio.crossOrigin = "anonymous";
   let playing   = false;
+
+  const ctx      = new AudioContext();
+  const source   = ctx.createMediaElementSource(audio);
+  const analyser = ctx.createAnalyser();
+  analyser.fftSize = 128;                          // 128 FFT → 64 bins
+  source.connect(analyser);
+  analyser.connect(ctx.destination);
+
+  const bufferLen = analyser.frequencyBinCount;    // 64
+  const dataArray = new Uint8Array(bufferLen);
+  const smoothed  = new Float32Array(64);          // smoothing buffer
+  const barsEl    = document.querySelectorAll('.bar');
 
   const playIcon = document.getElementById('playIcon');
   const fill     = document.getElementById('fill');
   const current  = document.getElementById('current');
   const total    = document.getElementById('total');
   const duration = document.getElementById('duration');
-  const barsEl   = document.querySelectorAll('.bar');
   const track    = document.getElementById('track');
 
   function fmt(s) {
-    return `${Math.floor(s/60)}:${Math.floor(s%60).toString().padStart(2,'0')}`;
+    return `${Math.floor(s / 60)}:${Math.floor(s % 60).toString().padStart(2, '0')}`;
   }
 
   audio.addEventListener('loadedmetadata', () => {
@@ -431,22 +599,49 @@ if (!song) {
   audio.addEventListener('ended', () => {
     playing = false;
     playIcon.innerHTML = '<polygon points="5,3 19,12 5,21"/>';
-    barsEl.forEach(b => b.classList.remove('playing'));
+    barsEl.forEach(b => { b.style.transform = 'scaleY(0.05)'; b.style.opacity = '0.4'; });
   });
 
   track.addEventListener('click', e => {
     audio.currentTime = (e.offsetX / track.offsetWidth) * audio.duration;
   });
 
+  // ── Visualizer loop ───────────────────────────────────────────────────────────
+  function drawBars() {
+    requestAnimationFrame(drawBars);
+    analyser.getByteFrequencyData(dataArray);
+
+    // first pass — update smoothed values
+    barsEl.forEach((bar, i) => {
+      const binIndex  = Math.floor((i / barsEl.length) * bufferLen * 0.4);
+      const raw       = dataArray[binIndex] / 255;
+      const position  = i / barsEl.length;               // 0.0 (left) → 1.0 (right)
+      const weighted  = raw * (0.3 + position * 0.7);    // left bars dampened, right bars full
+      smoothed[i]     = smoothed[i] * 0.5 + weighted * 0.5;
+    });
+
+    // find the loudest bar this frame
+    const maxVal = Math.max(...smoothed.slice(0, barsEl.length), 0.01);
+
+    // second pass — draw relative to max
+    barsEl.forEach((bar, i) => {
+      const relative = smoothed[i] / maxVal;             // 0.0 → 1.0, always relative
+      const boosted  = Math.pow(relative, 1.5);          // punish quiet bars harder
+      const height   = Math.max(0.02, boosted);
+      bar.style.transform = `scaleY(${height})`;
+      bar.style.opacity   = String(0.3 + boosted * 0.7);
+    });
+  }
+  drawBars();
+
   window.togglePlay = () => {
     if (playing) {
       audio.pause();
       playIcon.innerHTML = '<polygon points="5,3 19,12 5,21"/>';
-      barsEl.forEach(b => b.classList.remove('playing'));
     } else {
+      ctx.resume();
       audio.play();
       playIcon.innerHTML = '<rect x="5" y="3" width="4" height="18"/><rect x="15" y="3" width="4" height="18"/>';
-      barsEl.forEach(b => b.classList.add('playing'));
     }
     playing = !playing;
   };
@@ -456,8 +651,8 @@ if (!song) {
 
 function escapeHtml(s) {
   return String(s)
-    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 </script>
 </body>
